@@ -3,10 +3,9 @@ import 'package:harry_potter/index.dart';
 
 void main() {
   runApp(const MaterialApp(
-     debugShowCheckedModeBanner: false,
-    title: "Harry Potter",
-    home: HomePage()
-  ));
+      debugShowCheckedModeBanner: false,
+      title: "Harry Potter",
+      home: HomePage()));
 }
 
 class HarryPotter extends StatefulWidget {
@@ -31,3 +30,6 @@ class HarryPotterState extends State<HarryPotter> {
 //screens(welcome/login/signup/darshboard(bottons)/gallery.
 //characters, potions,spells, wands,movies,books
 //Harry Potter API (getting information online)
+
+//Protest Revolution, Protest riot,Protest Guerrilla,GreatVibes
+//Rubik Glitch Pop, Creepster
