@@ -1,6 +1,6 @@
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:harry_potter/login_page.dart';
+import 'mydashboard.dart';
 // import 'potterthemes.dart';
 
 class HomePage extends StatefulWidget {
@@ -74,7 +74,7 @@ class HomePageState extends State<HomePage> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const LogIn())
+                            MaterialPageRoute(builder: (context) => const DashBoard())
                           );
                         },
                         label: const Text("TAKE A TOUR"),

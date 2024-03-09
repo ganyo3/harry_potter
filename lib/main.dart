@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter/index.dart';
+import 'index.dart';
 
 void main() {
   runApp(const MaterialApp(
