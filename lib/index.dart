@@ -18,23 +18,17 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     // var theme = harryPotterTheme();
-    return MaterialApp(
+    return Scaffold(
       // theme: theme,
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        // appBar: AppBar(
-        //   title: const Text("Harry Potter"),
-        // ),
-        body: SafeArea(
-          child: DecoratedBox(
-            // BoxDecoration takes the image
-            decoration: const BoxDecoration(
-              // Image set to background of the body
-              image: DecorationImage(
-                  image: AssetImage("assets/images/hogwarts.jpg"),
-                  fit: BoxFit.cover),
-            ),
-            child: Center(
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+            // Image set to background of the body
+            image: DecorationImage(
+                image: AssetImage("assets/images/hogwarts.jpg"),
+                fit: BoxFit.cover),
+          ),
+        child: SafeArea(
+          child: Center(
               //A Welcome Text
               child: Stack(
                   // textDirection:,
@@ -63,13 +57,13 @@ class HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-
+        
                     //Entry Button
                     Positioned(
                       bottom: size.height * 0.0,
                       child: FloatingActionButton.extended(
                         backgroundColor: Colors.black12,
-                        foregroundColor: Colors.green,
+                        foregroundColor: Colors.grey,
                         extendedTextStyle: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -88,7 +82,6 @@ class HomePageState extends State<HomePage> {
                     ),
                   ]),
             ),
-          ),
         ),
       ),
     );
