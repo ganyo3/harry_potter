@@ -22,8 +22,9 @@ class LogInState extends State<LogIn> {
       appBar: AppBar(
         foregroundColor: theme.appBarTheme.foregroundColor,
         backgroundColor: theme.appBarTheme.backgroundColor,
-        title:const Text(
+        title:Text(
           "Sign In",
+          style: theme.textTheme.titleLarge,
         ),
         centerTitle: true,
       ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/gallery/character_page.dart';
+import 'package:harry_potter/gallery/sportstool.dart';
+import 'package:harry_potter/gallery/wand_display.dart';
 import 'potterthemes.dart';
 
 class Gallery extends StatefulWidget {
@@ -8,61 +11,67 @@ class Gallery extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-     return GalleryState();
+    return GalleryState();
   }
 }
 
 class GalleryState extends State<Gallery> {
+  int _selectedIndex = 0;
+  static List<Widget> pages = <Widget>[
+     const CharacterPage(),
+     const MagicWand(),
+     const SportTools()
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-      var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
     var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: theme.appBarTheme.backgroundColor,
-          foregroundColor: theme.appBarTheme.foregroundColor,
-          title: Text("Hogwarts Gallery",
+      appBar: AppBar(
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
+        title: Text(
+          "Hogwarts Gallery",
           style: theme2.textTheme.displayLarge,
-          ),
-          centerTitle: true,
         ),
-        body: DecoratedBox(
-          decoration: const BoxDecoration(
-              // Image set to background of the body
-              image: DecorationImage(
-                  image: AssetImage("assets/images/harry-potter.jpg"),
-                  fit: BoxFit.cover),
+        centerTitle: true,
+      ),
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          // Image set to background of the body
+          image: DecorationImage(
+              image: AssetImage("assets/images/harry-potter.jpg"),
+              fit: BoxFit.cover),
+        ),
+        child: SafeArea(
+          child: Center(
+            child:pages[_selectedIndex],
+          ),
+        ),
+      ),
+            bottomNavigationBar: BottomNavigationBar(
+            currentIndex: _selectedIndex,
+              selectedItemColor: Colors.amber,
+              onTap: _onItemTapped,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: "Characters",
+                ),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.castle), label: "House"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.sports_cricket_sharp), label: "Sports Tools")
+              ],
             ),
-          child: SafeArea(
-            child: Center(
-                //A Welcome Text
-               child: Column(
-                children: [
-                  BottomNavigationBar(
-                    selectedItemColor: Colors.amber,
-                    onTap: (context){},
-                    items: const [
-                      BottomNavigationBarItem(
-                        icon:Icon(Icons.person),
-                        label: "Characters"
-                        ),
-                      BottomNavigationBarItem(
-                        icon:Icon(Icons.castle),
-                        label: "House"
-                        ),
-                      BottomNavigationBarItem(
-                        icon:Icon(Icons.flight),
-                        label: "Brooms"
-                        )
-                    ],
-                    ),
-                ],
-               ),
-              ),
-          ),
-        ),
     );
   }
 }

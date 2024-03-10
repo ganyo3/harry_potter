@@ -37,6 +37,11 @@ class PotterTheme {
       fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
+    bodyMedium:TextStyle(
+      fontSize: 25.0,
+      fontWeight: FontWeight.bold,
+      color: Color.fromRGBO(128, 0, 0, 0.925),
+    ),
     displayLarge: TextStyle(
       fontSize: 25.0,
       fontWeight: FontWeight.bold,
