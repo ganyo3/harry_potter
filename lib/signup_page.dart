@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'potterthemes.dart';
 import 'login_page.dart';
 
 class SignUp extends StatefulWidget {
@@ -15,18 +15,18 @@ class SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var theme = PotterTheme.dark();
+    var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-        title: const Text(
+        foregroundColor: theme.appBarTheme.foregroundColor,
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        title: Text(
           "Sign Up",
-          style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        centerTitle: true,
-      ),
+          style: theme.textTheme.titleLarge,),
+          centerTitle:true,
+       ),
       body: DecoratedBox(
         decoration: const BoxDecoration(
           // Image set to background of the body
@@ -45,12 +45,9 @@ class SignUpState extends State<SignUp> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: size.width * 0.20),
-                    child: const Text(
+                    child: Text(
                       "Sign Up...\nBe a Part of The Magic",
-                      style: TextStyle(
-                          color: Color.fromARGB(150, 255, 171, 64),
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold),
+                      style: theme.textTheme.displayMedium,
                     ),
                   ),
                   Container(
@@ -62,12 +59,12 @@ class SignUpState extends State<SignUp> {
                       child: Column(
                         children: [
                           TextFormField(
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               label: Text(
                                 "Email/Phone...",
-                                style: TextStyle(color: Colors.white60),
+                                style: theme.textTheme.displaySmall,
                               ),
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
@@ -80,12 +77,12 @@ class SignUpState extends State<SignUp> {
                             height: size.height * 0.02,
                           ),
                           TextFormField(
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               label: Text(
                                 "Username...",
-                                style: TextStyle(color: Colors.white60),
+                                style: theme.textTheme.displaySmall,
                               ),
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
@@ -98,12 +95,12 @@ class SignUpState extends State<SignUp> {
                             height: size.height * 0.02,
                           ),
                           TextFormField(
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               label: Text(
                                 "Password...",
-                                style: TextStyle(color: Colors.white60),
+                                style: theme.textTheme.displaySmall,
                               ),
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
@@ -117,12 +114,12 @@ class SignUpState extends State<SignUp> {
                           ),
                           TextFormField(
                             obscureText: true,
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               label: Text(
                                 "Confirm Password...",
-                                style: TextStyle(color: Colors.white60),
+                                style: theme.textTheme.displaySmall,
                               ),
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
@@ -141,8 +138,10 @@ class SignUpState extends State<SignUp> {
                   Padding(
                     padding: EdgeInsets.only(right: size.width * 0.20),
                     child: FloatingActionButton.extended(
-                      backgroundColor: const Color.fromARGB(150, 255, 171, 64),
-                      foregroundColor: Colors.white,
+                      backgroundColor:
+                          theme.floatingActionButtonTheme.backgroundColor,
+                      foregroundColor:
+                          theme.floatingActionButtonTheme.foregroundColor,
                       extendedTextStyle: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
@@ -157,15 +156,12 @@ class SignUpState extends State<SignUp> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.27),
+                    padding: EdgeInsets.only(left: size.width * 0.22),
                     child: Row(
                       children: [
-                        const Text(
+                        Text(
                           "Already a Wizard?",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
+                          style: theme.textTheme.displaySmall
                         ),
                         TextButton(
                             onPressed: () {
@@ -174,12 +170,9 @@ class SignUpState extends State<SignUp> {
                                   MaterialPageRoute(
                                       builder: (context) => const LogIn()));
                             },
-                            child: const Text(
+                            child: Text(
                               "Log In",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(150, 255, 171, 64),
-                              ),
+                              style: theme2.textTheme.displaySmall,
                             ))
                       ],
                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'potterthemes.dart';
 import 'index.dart';
 import 'login_page.dart';
 import 'signup_page.dart';
@@ -17,461 +18,509 @@ class DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var theme = PotterTheme.dark();
+    var theme2 = PotterTheme.light();
     // var theme = harryPotterTheme();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
-        title:   const Text("Welcome To Your DashBoard",
-                   style: TextStyle(
-                    color: Colors.amber,
-                    fontWeight:FontWeight.bold,
-                    fontSize: 20,
-                   ),
-                   ),
-                   centerTitle: true,
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
+        title: Text(
+          "Welcome To Your DashBoard",
+          style: theme2.textTheme.displayMedium,
+        ),
+        centerTitle: true,
       ),
       // drawer
-       drawer: callDrawer(context),
+      drawer: callDrawer(context),
       body: DecoratedBox(
         decoration: const BoxDecoration(
-            // Image set to background of the body
-            image: DecorationImage(
-                image: AssetImage("assets/images/hogwarts-logo.jpg"),
-                // opacity: 0.9,
-                fit: BoxFit.cover),
-          ),
+          // Image set to background of the body
+          image: DecorationImage(
+              image: AssetImage("assets/images/hogwarts-logo.jpg"),
+              // opacity: 0.85,
+              fit: BoxFit.cover),
+        ),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Center(
-             child:  Column(children: [
-                   
-                     //The User Info...
-                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: size.width*0.04),
-                     padding: EdgeInsets.symmetric(vertical: size.height*0.01,
-                     horizontal: size.height*0.01,
-                     ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.white30
-                      ),
-                       child: Row(
-                        children: [
-                         CircleAvatar(
-                          radius: size.width*0.15,
-                          backgroundImage: const AssetImage("assets/images/harry_potter.jpg"),
-                         ),
-                         SizedBox(width: size.width*0.02,),
-                        const Column(
-                          children: [
-                            Text("Grand Master Mimzy",  
-                            style: TextStyle(
-                      color: Colors.amber,
-                      fontWeight:FontWeight.bold,
-                      fontSize: 20,
-                    ),),
-                         Text("Sorcerer Supreme", 
-                         style: TextStyle(
-                      color: Colors.amber,
-                      fontWeight:FontWeight.bold,
-                    ),),
-                          ],
-                        ),
-                        ],
-                       ),
-                     ),
-                     //Main Body Content...
-                  SizedBox(
-                height: size.height*1.25,
-                child: GridView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 7,
-                      mainAxisSpacing: 7,
-                      childAspectRatio: .66,
-                    ),
-                    padding: EdgeInsets.symmetric(
-                        vertical: size.height * .02,
-                        horizontal: size.width * .05),
+                child: Column(
+              children: [
+                //The User Info...
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+                  padding: EdgeInsets.symmetric(
+                    vertical: size.height * 0.01,
+                    horizontal: size.height * 0.01,
+                  ),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white),
+                  child: Row(
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
+                      CircleAvatar(
+                        radius: size.width * 0.15,
+                        backgroundImage:
+                            const AssetImage("assets/images/harry_potter.jpg"),
+                      ),
+                      SizedBox(
+                        width: size.width * 0.02,
+                      ),
+                      Column(
+                        children: [
+                          Text("Grand Master Mimzy",
+                              style: theme2.textTheme.displayMedium),
+                          Text("Sorcerer Supreme",
+                              style: theme2.textTheme.displaySmall),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                //Main Body Content...
+
+                Container(
+                    margin: EdgeInsets.symmetric(horizontal: size.width * 0.04,
+                    vertical: size.width * 0.04,
+                    ),
+                  padding: EdgeInsets.symmetric(
+                    vertical: size.height * 0.005,
+                    horizontal: size.height * 0.025,
+                  ),
+                   decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.white),
+                  child: Row(
+                    children: [
+                     Column(
+                       children: [
+                         const CircleAvatar(
+                          backgroundImage: AssetImage("assets/images/potter-hd.jpg"),
+                         ),
+                         Text("Gallery",
+                         style: theme2.textTheme.displaySmall,
+                         ),
+                       ],
+                     ),
+                    SizedBox(width: size.width*0.04,),
+                     Column(
+                       children: [
+                         const CircleAvatar(
+                          backgroundColor: Colors.blueAccent,
+                         backgroundImage: AssetImage("assets/images/facebook.png"),
+                         ),
+                         Text("FaceBook",
+                         style: theme2.textTheme.displaySmall,
+                         ),
+                       ],
+                     ),
+                      SizedBox(width: size.width*0.04,),
+                     Column(
+                       children: [
+                         CircleAvatar(
+                          backgroundColor: theme.appBarTheme.backgroundColor,
+                         backgroundImage: const AssetImage("assets/images/twitter.png",),
+                         ),
+                         Text("X",
+                         style: theme2.textTheme.displaySmall,
+                         ),
+                       ],
+                     ),
+                      SizedBox(width: size.width*0.04,),
+                     Column(
+                       children: [
+                         const CircleAvatar(
+                          backgroundColor: Color.fromRGBO(128, 0, 0, 0.925),
+                         backgroundImage: AssetImage("assets/images/instagram.png"),
+                         ),
+                         Text("Instagram",
+                         style: theme2.textTheme.displaySmall,
+                         ),
+                       ],
+                     ),
+                    
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 1.25,
+                  child: GridView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 7,
+                        mainAxisSpacing: 7,
+                        childAspectRatio: .66,
+                      ),
+                      padding: EdgeInsets.symmetric(
+                          vertical: size.height * .02,
+                          horizontal: size.width * .05),
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
                                         image: AssetImage(
                                             'assets/images/movieswall.jpg'),
-                                            fit: BoxFit.cover,
-                                            )),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
                               ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
+                              Expanded(
+                                flex: 1,
                                 child: Text(
                                   'All Movies',
-                                  style: TextStyle(color: Colors.amber),
+                                  style: theme.textTheme.displaySmall,
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
                                         image: AssetImage(
                                             'assets/images/novels.jpg'),
-                                            fit: BoxFit.cover,
-                                            )),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
                               ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
+                              Expanded(
+                                flex: 1,
                                 child: Text(
                                   'The Novels',
-                                  style: TextStyle(color: Colors.amber),
+                                  style: theme.textTheme.displaySmall,
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
                                         image: AssetImage(
                                             'assets/images/goblin.jpg'),
-                                            fit: BoxFit.cover,
-                                            )),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
                               ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
+                              Expanded(
+                                flex: 1,
                                 child: Text(
                                   'Characters',
-                                  style: TextStyle(color: Colors.amber),
+                                  style: theme.textTheme.displaySmall,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          'assets/images/wand-collection-.jpeg',
+                                        ),
+                                        fit: BoxFit.cover,
+                                      )),
                                 ),
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/wand-collection-.jpeg',),
-                                            fit: BoxFit.cover,
-                                            )),
-                              ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
+                              Expanded(
+                                flex: 1,
                                 child: Text(
                                   'The Wands',
-                                  style: TextStyle(color: Colors.amber),
+                                  style: theme.textTheme.displaySmall,
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
                                         image: AssetImage(
                                             'assets/images/magicspell.jpg'),
-                                            fit: BoxFit.cover,
-                                            )),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
                               ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
+                              Expanded(
+                                flex: 1,
                                 child: Text(
                                   'Magic Spells',
-                                  style: TextStyle(color: Colors.amber),
+                                  style: theme.textTheme.displaySmall,
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
                                         image: AssetImage(
                                             'assets/images/magicpotion.jpg'),
-                                            fit: BoxFit.cover,
-                                            )),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
                               ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
+                              Expanded(
+                                flex: 1,
                                 child: Text(
                                   'Magic Potions',
-                                  style: TextStyle(color: Colors.amber),
+                                  style: theme.textTheme.displaySmall,
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
                                         image: AssetImage(
                                             'assets/images/houselogo.jpg'),
-                                            fit: BoxFit.cover,
-                                            )),
+                                        fit: BoxFit.cover,
+                                      )),
+                                ),
                               ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
+                              Expanded(
+                                flex: 1,
                                 child: Text(
                                   'Hall History',
-                                  style: TextStyle(color: Colors.amber),
+                                  style: theme.textTheme.displaySmall,
                                 ),
-                              ),
-                            )
-                          ],
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          color: const Color.fromRGBO(128, 0, 0, 0.925),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 8,
-                              child: Container(
-                                decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(10),
-                                      topRight: Radius.circular(10),
-                                    ),
-                                    image: DecorationImage(
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            children: [
+                              Expanded(
+                                flex: 8,
+                                child: Container(
+                                  decoration: const BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
                                         image: AssetImage(
                                             'assets/images/artifacts.jpg'),
-                                            fit: BoxFit.cover,
-                                            )),
-                              ),
-                            ),
-                            const Expanded(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsets.only(left: 10),
-                                child: Text(
-                                  'Magic Artifacts',
-                                  style: TextStyle(color: Colors.amber),
+                                        fit: BoxFit.cover,
+                                      )),
                                 ),
                               ),
-                            )
-                          ],
+                              Expanded(
+                                flex: 1,
+                                child: Text(
+                                  'Magic Artifacts',
+                                  style: theme.textTheme.displaySmall,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                      ),
-                    ]),
-              )
-               ],)
-              ),
+                      ]),
+                )
+              ],
+            )),
           ),
         ),
       ),
     );
   }
 }
-//Drawer 
+
+//Drawer
 Drawer callDrawer(BuildContext context) {
-   var size = MediaQuery.of(context).size;
-    return Drawer(
-      backgroundColor: Colors.black54,
-      child: ListView(
-        children: [
-          ListTile(
-            leading: FloatingActionButton.small(
-              backgroundColor: Colors.blue,
-              onPressed: () {},
-              child: const Icon(
-                Icons.login_sharp,
-                color: Colors.white,
-              ),
+  var theme = PotterTheme.dark();
+  var size = MediaQuery.of(context).size;
+  return Drawer(
+    backgroundColor: Colors.black54,
+    child: ListView(
+      children: [
+        ListTile(
+          leading: FloatingActionButton.small(
+            backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
+            foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
+            onPressed: () {},
+            child: Icon(
+              Icons.photo_album_outlined,
+              color: theme.iconTheme.color,
             ),
-            title: const Text(
-              'Sign In',
-              style: TextStyle(color: Colors.white),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios_sharp,
-              color: Colors.white,
-            ),
-            onTap: () {
-               Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const LogIn())
-              );
-            },
           ),
-          Divider(
-          endIndent: size.width*0.15,
-        color: Colors.white,
+          title: Text(
+            'Gallery',
+            style: theme.textTheme.displaySmall,
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
-          ListTile(
-            leading: FloatingActionButton.small(
-              backgroundColor: Colors.blue,
-              onPressed: () {},
-              child: const Icon(
-                Icons.person_add_alt,
-                color: Colors.white,
-              ),
-            ),
-            title: const Text(
-              'Sign Up',
-              style: TextStyle(color: Colors.white),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios_sharp,
-              color: Colors.white,
-            ),
-            onTap: () {
-             Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const SignUp())
-              );
-            },
-          ),
-          Divider(
-          endIndent: size.width*0.15,
-        color: Colors.white,
+        Divider(
+          endIndent: size.width * 0.15,
+          color: Colors.white,
         ),
-          ListTile(
-            leading: FloatingActionButton.small(
-              backgroundColor: Colors.blue,
-              onPressed: () {},
-              child: const Icon(
-                Icons.power_off,
-                color: Colors.white,
-              ),
+        ListTile(
+          leading: FloatingActionButton.small(
+            backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
+            foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
+            onPressed: () {},
+            child: Icon(
+              Icons.login_sharp,
+              color: theme.iconTheme.color,
             ),
-            title: const Text(
-              'Logout',
-              style: TextStyle(color: Colors.white),
-            ),
-            trailing: const Icon(
-              Icons.arrow_forward_ios_sharp,
-              color: Colors.white,
-            ),
-            onTap: () {
-              Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const HomePage())
-              );
-            },
           ),
-        ],
-      ),
-    );
-  }
+          title: Text(
+            'Sign In',
+            style: theme.textTheme.displaySmall,
+          ),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const LogIn()));
+          },
+        ),
+        Divider(
+          endIndent: size.width * 0.15,
+          color: Colors.white,
+        ),
+        ListTile(
+          leading: FloatingActionButton.small(
+            backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
+            foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
+            onPressed: () {},
+            child: Icon(
+              Icons.person_add_alt,
+              color: theme.iconTheme.color,
+            ),
+          ),
+          title: Text(
+            'Sign Up',
+            style: theme.textTheme.displaySmall,
+          ),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const SignUp()));
+          },
+        ),
+        Divider(
+          endIndent: size.width * 0.15,
+          color: Colors.white,
+        ),
+        ListTile(
+          leading: FloatingActionButton.small(
+            backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
+            foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
+            onPressed: () {},
+            child: Icon(
+              Icons.power_off,
+              color: theme.iconTheme.color,
+            ),
+          ),
+          title: Text(
+            'Logout',
+            style: theme.textTheme.displaySmall,
+          ),
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const HomePage()));
+          },
+        ),
+      ],
+    ),
+  );
+}
