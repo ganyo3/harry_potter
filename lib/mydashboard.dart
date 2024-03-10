@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/mygallery.dart';
 import 'potterthemes.dart';
 import 'index.dart';
 import 'login_page.dart';
@@ -38,8 +39,7 @@ class DashBoardState extends State<DashBoard> {
           // Image set to background of the body
           image: DecorationImage(
               image: AssetImage("assets/images/hogwarts-logo.jpg"),
-              // opacity: 0.85,
-              fit: BoxFit.cover),
+             fit: BoxFit.cover),
         ),
         child: SafeArea(
           child: SingleChildScrollView(
@@ -80,65 +80,88 @@ class DashBoardState extends State<DashBoard> {
                 //Main Body Content...
 
                 Container(
-                    margin: EdgeInsets.symmetric(horizontal: size.width * 0.04,
+                  margin: EdgeInsets.symmetric(
+                    horizontal: size.width * 0.04,
                     vertical: size.width * 0.04,
-                    ),
+                  ),
                   padding: EdgeInsets.symmetric(
                     vertical: size.height * 0.005,
                     horizontal: size.height * 0.025,
                   ),
-                   decoration: BoxDecoration(
+                  decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.white),
                   child: Row(
                     children: [
-                     Column(
-                       children: [
-                         const CircleAvatar(
-                          backgroundImage: AssetImage("assets/images/potter-hd.jpg"),
-                         ),
-                         Text("Gallery",
-                         style: theme2.textTheme.displaySmall,
-                         ),
-                       ],
-                     ),
-                    SizedBox(width: size.width*0.04,),
-                     Column(
-                       children: [
-                         const CircleAvatar(
-                          backgroundColor: Colors.blueAccent,
-                         backgroundImage: AssetImage("assets/images/facebook.png"),
-                         ),
-                         Text("FaceBook",
-                         style: theme2.textTheme.displaySmall,
-                         ),
-                       ],
-                     ),
-                      SizedBox(width: size.width*0.04,),
-                     Column(
-                       children: [
-                         CircleAvatar(
-                          backgroundColor: theme.appBarTheme.backgroundColor,
-                         backgroundImage: const AssetImage("assets/images/twitter.png",),
-                         ),
-                         Text("X",
-                         style: theme2.textTheme.displaySmall,
-                         ),
-                       ],
-                     ),
-                      SizedBox(width: size.width*0.04,),
-                     Column(
-                       children: [
-                         const CircleAvatar(
-                          backgroundColor: Color.fromRGBO(128, 0, 0, 0.925),
-                         backgroundImage: AssetImage("assets/images/instagram.png"),
-                         ),
-                         Text("Instagram",
-                         style: theme2.textTheme.displaySmall,
-                         ),
-                       ],
-                     ),
-                    
+                      GestureDetector(
+                        child: Column(
+                          children: [
+                            const CircleAvatar(
+                              backgroundImage:
+                                  AssetImage("assets/images/potter-hd.jpg"),
+                            ),
+                            Text(
+                              "Gallery",
+                              style: theme2.textTheme.displaySmall,
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Gallery()));
+                        },
+                      ),
+                      SizedBox(
+                        width: size.width * 0.04,
+                      ),
+                      Column(
+                        children: [
+                          const CircleAvatar(
+                            backgroundColor: Colors.blueAccent,
+                            backgroundImage:
+                                AssetImage("assets/images/facebook.png"),
+                          ),
+                          Text(
+                            "FaceBook",
+                            style: theme2.textTheme.displaySmall,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: size.width * 0.04,
+                      ),
+                      Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: theme.appBarTheme.backgroundColor,
+                            backgroundImage: const AssetImage(
+                              "assets/images/twitter.png",
+                            ),
+                          ),
+                          Text(
+                            "X",
+                            style: theme2.textTheme.displaySmall,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: size.width * 0.04,
+                      ),
+                      Column(
+                        children: [
+                          const CircleAvatar(
+                            backgroundColor: Color.fromRGBO(128, 0, 0, 0.925),
+                            backgroundImage:
+                                AssetImage("assets/images/instagram.png"),
+                          ),
+                          Text(
+                            "Instagram",
+                            style: theme2.textTheme.displaySmall,
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -159,7 +182,7 @@ class DashBoardState extends State<DashBoard> {
                       children: [
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
@@ -191,7 +214,7 @@ class DashBoardState extends State<DashBoard> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -223,7 +246,7 @@ class DashBoardState extends State<DashBoard> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -255,7 +278,7 @@ class DashBoardState extends State<DashBoard> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -288,7 +311,7 @@ class DashBoardState extends State<DashBoard> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -320,7 +343,7 @@ class DashBoardState extends State<DashBoard> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -352,7 +375,7 @@ class DashBoardState extends State<DashBoard> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -384,7 +407,7 @@ class DashBoardState extends State<DashBoard> {
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            color: const Color.fromRGBO(128, 0, 0, 0.925),
+                            color: theme.colorScheme.onBackground,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Column(
@@ -448,7 +471,8 @@ Drawer callDrawer(BuildContext context) {
             style: theme.textTheme.displaySmall,
           ),
           onTap: () {
-            Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Gallery()));
           },
         ),
         Divider(

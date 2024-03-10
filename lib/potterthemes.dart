@@ -15,7 +15,7 @@ class PotterTheme {
       color: Color.fromARGB(255, 248, 147, 15),
     ),
     displayMedium: TextStyle(
-       fontSize: 20.0,
+      fontSize: 20.0,
       fontWeight: FontWeight.w700,
       color: Color.fromARGB(255, 248, 147, 15),
     ),
@@ -38,7 +38,7 @@ class PotterTheme {
       color: Colors.white,
     ),
     displayLarge: TextStyle(
-    fontSize: 25.0,
+      fontSize: 25.0,
       fontWeight: FontWeight.bold,
       color: Colors.grey,
     ),
@@ -77,6 +77,9 @@ class PotterTheme {
   // 4
   static ThemeData dark() {
     return ThemeData(
+      colorScheme: const ColorScheme.dark(
+        onBackground: Color.fromRGBO(128, 0, 0, 0.925),
+      ),
       brightness: Brightness.dark,
       appBarTheme: const AppBarTheme(
         foregroundColor: Colors.white,
