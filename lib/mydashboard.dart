@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/dashboard/books.dart';
+import 'package:harry_potter/dashboard/halls.dart';
+import 'package:harry_potter/dashboard/magic_artifacts.dart';
+import 'package:harry_potter/dashboard/movies.dart';
+import 'package:harry_potter/dashboard/potions.dart';
+import 'package:harry_potter/dashboard/spells.dart';
+import 'package:harry_potter/dashboard/wands.dart';
 import 'package:harry_potter/mygallery.dart';
+import 'dashboard/characters.dart';
 import 'potterthemes.dart';
 import 'index.dart';
 import 'login_page.dart';
@@ -39,7 +47,7 @@ class DashBoardState extends State<DashBoard> {
           // Image set to background of the body
           image: DecorationImage(
               image: AssetImage("assets/images/hogwarts-logo.jpg"),
-             fit: BoxFit.cover),
+              fit: BoxFit.cover),
         ),
         child: SafeArea(
           child: SingleChildScrollView(
@@ -180,261 +188,325 @@ class DashBoardState extends State<DashBoard> {
                           vertical: size.height * .02,
                           horizontal: size.width * .05),
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/movieswall.jpg'),
-                                        fit: BoxFit.cover,
-                                      )),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'All Movies',
-                                  style: theme.textTheme.displaySmall,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/novels.jpg'),
-                                        fit: BoxFit.cover,
-                                      )),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'The Novels',
-                                  style: theme.textTheme.displaySmall,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/goblin.jpg'),
-                                        fit: BoxFit.cover,
-                                      )),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Characters',
-                                  style: theme.textTheme.displaySmall,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          'assets/images/wand-collection-.jpeg',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Movies()));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
                                         ),
-                                        fit: BoxFit.cover,
-                                      )),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/movieswall.jpg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'The Wands',
-                                  style: theme.textTheme.displaySmall,
-                                ),
-                              )
-                            ],
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'All Movies',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/magicspell.jpg'),
-                                        fit: BoxFit.cover,
-                                      )),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>const Books())
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/novels.jpg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Magic Spells',
-                                  style: theme.textTheme.displaySmall,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/magicpotion.jpg'),
-                                        fit: BoxFit.cover,
-                                      )),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Magic Potions',
-                                  style: theme.textTheme.displaySmall,
-                                ),
-                              )
-                            ],
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'The Novels',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/houselogo.jpg'),
-                                        fit: BoxFit.cover,
-                                      )),
+                        GestureDetector(
+                            onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>const Character()),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/goblin.jpg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Hall History',
-                                  style: theme.textTheme.displaySmall,
-                                ),
-                              )
-                            ],
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Characters',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.onBackground,
-                            borderRadius: BorderRadius.circular(20),
+                        GestureDetector(
+                            onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>const Wands())
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                            'assets/images/wand-collection-.jpeg',
+                                          ),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'The Wands',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                flex: 8,
-                                child: Container(
-                                  decoration: const BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(10),
-                                        topRight: Radius.circular(10),
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                            'assets/images/artifacts.jpg'),
-                                        fit: BoxFit.cover,
-                                      )),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>const Spells())
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/magicspell.jpg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
                                 ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Text(
-                                  'Magic Artifacts',
-                                  style: theme.textTheme.displaySmall,
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Magic Spells',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>const Potions())
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/magicpotion.jpg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
                                 ),
-                              )
-                            ],
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Magic Potions',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>const Halls())
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/houselogo.jpg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Hall History',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context)=>const Artifacts())
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onBackground,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          topRight: Radius.circular(10),
+                                        ),
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              'assets/images/artifacts.jpg'),
+                                          fit: BoxFit.cover,
+                                        )),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Text(
+                                    'Magic Artifacts',
+                                    style: theme.textTheme.displaySmall,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ]),
