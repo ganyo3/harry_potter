@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import '../potterthemes.dart';
 
-class SportTools extends StatefulWidget {
+class House extends StatefulWidget {
   @override
-  const SportTools({super.key});
+  const House({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return SportToolsState();
+    return HouseState();
   }
 }
 
-class SportToolsState extends State<SportTools> {
+class HouseState extends State<House> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -25,7 +25,7 @@ class SportToolsState extends State<SportTools> {
         //   backgroundColor: theme.appBarTheme.backgroundColor,
         //   foregroundColor: theme.appBarTheme.foregroundColor,
         //   title: Text(
-        //     "Sport Tools",
+        //     "Hogwarts' Houses",
         //     style: theme.textTheme.titleLarge,
         //   ),
         //   centerTitle: true,
@@ -57,7 +57,7 @@ class SportToolsState extends State<SportTools> {
                       color: theme.colorScheme.onBackground,
                     ),
                     child: Text(
-                      "Sports Gallery",
+                      "House gallery",
                       style: theme.textTheme.displayMedium
                     ),
                   ),

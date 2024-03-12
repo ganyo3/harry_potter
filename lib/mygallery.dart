@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/gallery/character_page.dart';
+import 'package:harry_potter/gallery/house.dart';
 import 'package:harry_potter/gallery/sportstool.dart';
 import 'package:harry_potter/gallery/wand_display.dart';
 import 'potterthemes.dart';
@@ -20,6 +21,7 @@ class GalleryState extends State<Gallery> {
   static List<Widget> pages = <Widget>[
      const CharacterPage(),
      const MagicWand(),
+    //  const House(),
      const SportTools()
   ];
   void _onItemTapped(int index) {
@@ -49,7 +51,7 @@ class GalleryState extends State<Gallery> {
           // Image set to background of the body
           image: DecorationImage(
               image: AssetImage("assets/images/harry-potter.jpg"),
-              fit: BoxFit.cover),
+              fit: BoxFit.fill),
         ),
         child: SafeArea(
           child: Center(
@@ -58,14 +60,18 @@ class GalleryState extends State<Gallery> {
         ),
       ),
             bottomNavigationBar: BottomNavigationBar(
+              // backgroundColor: theme.colorScheme.onBackground,
             currentIndex: _selectedIndex,
               selectedItemColor: Colors.amber,
+              unselectedItemColor: Colors.black,
               onTap: _onItemTapped,
               items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.person),
                   label: "Characters",
                 ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.brush), label: "Wands"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.castle), label: "House"),
                 BottomNavigationBarItem(

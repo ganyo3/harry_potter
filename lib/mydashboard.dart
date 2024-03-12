@@ -47,7 +47,7 @@ class DashBoardState extends State<DashBoard> {
           // Image set to background of the body
           image: DecorationImage(
               image: AssetImage("assets/images/hogwarts-logo.jpg"),
-              fit: BoxFit.cover),
+              fit: BoxFit.fill),
         ),
         child: SafeArea(
           child: SingleChildScrollView(
@@ -213,7 +213,7 @@ class DashBoardState extends State<DashBoard> {
                                         image: DecorationImage(
                                           image: AssetImage(
                                               'assets/images/movieswall.jpg'),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),
@@ -253,7 +253,7 @@ class DashBoardState extends State<DashBoard> {
                                         image: DecorationImage(
                                           image: AssetImage(
                                               'assets/images/novels.jpg'),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),
@@ -293,7 +293,7 @@ class DashBoardState extends State<DashBoard> {
                                         image: DecorationImage(
                                           image: AssetImage(
                                               'assets/images/goblin.jpg'),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),
@@ -334,7 +334,7 @@ class DashBoardState extends State<DashBoard> {
                                           image: AssetImage(
                                             'assets/images/wand-collection-.jpeg',
                                           ),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),
@@ -374,7 +374,7 @@ class DashBoardState extends State<DashBoard> {
                                         image: DecorationImage(
                                           image: AssetImage(
                                               'assets/images/magicspell.jpg'),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),
@@ -414,7 +414,7 @@ class DashBoardState extends State<DashBoard> {
                                         image: DecorationImage(
                                           image: AssetImage(
                                               'assets/images/magicpotion.jpg'),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),
@@ -454,7 +454,7 @@ class DashBoardState extends State<DashBoard> {
                                         image: DecorationImage(
                                           image: AssetImage(
                                               'assets/images/houselogo.jpg'),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),
@@ -494,7 +494,7 @@ class DashBoardState extends State<DashBoard> {
                                         image: DecorationImage(
                                           image: AssetImage(
                                               'assets/images/artifacts.jpg'),
-                                          fit: BoxFit.cover,
+                                          fit: BoxFit.fill,
                                         )),
                                   ),
                                 ),

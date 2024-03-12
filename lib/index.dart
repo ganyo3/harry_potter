@@ -27,7 +27,7 @@ class HomePageState extends State<HomePage> {
               // Image set to background of the body
               image: DecorationImage(
                   image: AssetImage("assets/images/hogwarts.jpg"),
-                  fit: BoxFit.cover),
+                  fit: BoxFit.fill),
             ),
           child: SafeArea(
             child: Center(

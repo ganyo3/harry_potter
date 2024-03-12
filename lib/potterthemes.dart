@@ -66,6 +66,9 @@ class PotterTheme {
   // 3
   static ThemeData light() {
     return ThemeData(
+       colorScheme: const ColorScheme.light(
+        onBackground: Colors.black87,
+      ),
       brightness: Brightness.light,
       appBarTheme: const AppBarTheme(
         foregroundColor: Colors.white,

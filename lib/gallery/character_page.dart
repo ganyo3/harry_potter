@@ -21,21 +21,21 @@ class CharacterPageState extends State<CharacterPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: theme.appBarTheme.backgroundColor,
-          foregroundColor: theme.appBarTheme.foregroundColor,
-          title: Text(
-            "Characters",
-            style: theme.textTheme.titleLarge,
-          ),
-          centerTitle: true,
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: theme.appBarTheme.backgroundColor,
+        //   foregroundColor: theme.appBarTheme.foregroundColor,
+        //   title: Text(
+        //     "Characters",
+        //     style: theme.textTheme.titleLarge,
+        //   ),
+        //   centerTitle: true,
+        // ),
         body:DecoratedBox(
           decoration: const BoxDecoration(
             // Image set to background of the body
             image: DecorationImage(
                 image: AssetImage("assets/images/harry-potter.jpg"),
-                fit: BoxFit.cover),
+                fit: BoxFit.fill),
           ),
           child: SafeArea(
             child: SingleChildScrollView(
@@ -45,7 +45,7 @@ class CharacterPageState extends State<CharacterPage> {
                   children: [
                    Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.15, 
+                      horizontal: size.width * 0.06, 
                       vertical: size.height * 0.02, 
                       ),
                     decoration: BoxDecoration(
@@ -56,7 +56,7 @@ class CharacterPageState extends State<CharacterPage> {
                       color: theme.colorScheme.onBackground,
                     ),
                     child: Text(
-                      "Head Teachers",
+                      "Character Gallery",
                       style: theme.textTheme.displayMedium
                     ),
                   ),
@@ -96,7 +96,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -131,7 +131,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -201,7 +201,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -236,7 +236,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -271,7 +271,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -306,7 +306,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -325,7 +325,7 @@ class CharacterPageState extends State<CharacterPage> {
                       //House Prefects
                    Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.15, 
+                      horizontal: size.width * 0.07, 
                       vertical: size.height * 0.02, 
                       ),
                     decoration: BoxDecoration(
@@ -376,7 +376,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )
                                             ),
                                       ),
@@ -412,7 +412,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -447,7 +447,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -482,7 +482,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -501,7 +501,7 @@ class CharacterPageState extends State<CharacterPage> {
                       //Regular students
                    Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.15, 
+                      horizontal: size.width * 0.06, 
                       vertical: size.height * 0.02, 
                       ),
                     decoration: BoxDecoration(
@@ -552,7 +552,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )
                                             ),
                                       ),
@@ -588,7 +588,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -623,7 +623,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -658,7 +658,7 @@ class CharacterPageState extends State<CharacterPage> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),

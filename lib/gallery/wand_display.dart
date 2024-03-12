@@ -21,21 +21,21 @@ class MagicWandState extends State<MagicWand> {
    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: theme.appBarTheme.backgroundColor,
-          foregroundColor: theme.appBarTheme.foregroundColor,
-          title: Text(
-            "Magic Wand",
-            style: theme.textTheme.titleLarge,
-          ),
-          centerTitle: true,
-        ),
+        // appBar: AppBar(
+        //   backgroundColor: theme.appBarTheme.backgroundColor,
+        //   foregroundColor: theme.appBarTheme.foregroundColor,
+        //   title: Text(
+        //     "Magic Wand",
+        //     style: theme.textTheme.titleLarge,
+        //   ),
+        //   centerTitle: true,
+        // ),
        body:DecoratedBox(
         decoration: const BoxDecoration(
           // Image set to background of the body
           image: DecorationImage(
-              image: AssetImage("assets/images/harry-potter.jpg"),
-              fit: BoxFit.cover),
+              image: AssetImage("assets/images/wandlogo.jpg"),
+              fit: BoxFit.fill),
         ),
         child: SafeArea(
           child: SingleChildScrollView(
@@ -46,7 +46,7 @@ class MagicWandState extends State<MagicWand> {
                      //Regular students
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.15, 
+                      horizontal: size.width * 0.06, 
                       vertical: size.height * 0.02, 
                       ),
                     decoration: BoxDecoration(
@@ -57,7 +57,7 @@ class MagicWandState extends State<MagicWand> {
                       color: theme.colorScheme.onBackground,
                     ),
                     child: Text(
-                      "The Elder Wands",
+                      "The Wand gallery",
                       style: theme.textTheme.displayMedium
                     ),
                   ),
@@ -97,7 +97,7 @@ class MagicWandState extends State<MagicWand> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )
                                             ),
                                       ),
@@ -133,7 +133,7 @@ class MagicWandState extends State<MagicWand> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -168,7 +168,7 @@ class MagicWandState extends State<MagicWand> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
@@ -203,7 +203,7 @@ class MagicWandState extends State<MagicWand> {
                                             image: DecorationImage(
                                               image: AssetImage(
                                                   'assets/images/product1.jpg'),
-                                              fit: BoxFit.cover,
+                                              fit: BoxFit.fill,
                                             )),
                                       ),
                                     ),
