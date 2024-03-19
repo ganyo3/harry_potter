@@ -21,8 +21,8 @@ class GalleryState extends State<Gallery> {
   static List<Widget> pages = <Widget>[
      const CharacterPage(),
      const MagicWand(),
-    //  const House(),
-     const SportTools()
+     const House(),
+     const SportTools(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -60,10 +60,10 @@ class GalleryState extends State<Gallery> {
         ),
       ),
             bottomNavigationBar: BottomNavigationBar(
-              // backgroundColor: theme.colorScheme.onBackground,
+              backgroundColor: Colors.black,
             currentIndex: _selectedIndex,
               selectedItemColor: Colors.amber,
-              unselectedItemColor: Colors.black,
+              unselectedItemColor: Colors.white,
               onTap: _onItemTapped,
               items: const [
                 BottomNavigationBarItem(
