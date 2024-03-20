@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/gallery/character_page.dart';
+import 'package:harry_potter/gallery/wand_display.dart';
 import 'package:harry_potter/gallery/house.dart';
 import 'package:harry_potter/gallery/sportstool.dart';
-import 'package:harry_potter/gallery/wand_display.dart';
 import 'potterthemes.dart';
 
 class Gallery extends StatefulWidget {
@@ -32,7 +32,7 @@ class GalleryState extends State<Gallery> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    // var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
     var theme2 = PotterTheme.light();
     // TODO: implement build
@@ -46,24 +46,13 @@ class GalleryState extends State<Gallery> {
         ),
         centerTitle: true,
       ),
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          // Image set to background of the body
-          image: DecorationImage(
-              image: AssetImage("assets/images/harry-potter.jpg"),
-              fit: BoxFit.fill),
-        ),
-        child: SafeArea(
-          child: Center(
-            child:pages[_selectedIndex],
-          ),
-        ),
-      ),
+      body:pages[_selectedIndex],
+     
             bottomNavigationBar: BottomNavigationBar(
               backgroundColor: Colors.black,
             currentIndex: _selectedIndex,
               selectedItemColor: Colors.amber,
-              unselectedItemColor: Colors.white,
+              unselectedItemColor: Colors.black,
               onTap: _onItemTapped,
               items: const [
                 BottomNavigationBarItem(
@@ -71,11 +60,14 @@ class GalleryState extends State<Gallery> {
                   label: "Characters",
                 ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.brush), label: "Wands"),
+                    icon: Icon(Icons.brush), 
+                    label: "Wands"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.castle), label: "House"),
+                    icon: Icon(Icons.castle), 
+                label: "House"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.sports_cricket_sharp), label: "Sports Tools")
+                    icon: Icon(Icons.sports_cricket_sharp), 
+                label: "Sports Tools")
               ],
             ),
     );

@@ -37,114 +37,117 @@ class LogInState extends State<LogIn> {
         child: SafeArea(
           child: Center(
             //Creating Forms
-            child: Container(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: size.height*0.05),
-                    child: Text(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.only(bottom: size.height * 0.2),
+                child: Column(
+                  children: [
+                    Text(
                       "Sign In To Your DashBoard",
                       style: theme.textTheme.displayMedium,
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.05,
-                        vertical: size.height * 0.05),
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          decoration: InputDecoration(
-                            label: Text(
-                              "Email...",
-                              style: theme.textTheme.displaySmall,
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: size.width * 0.05,
+                          vertical: size.height * 0.05),
+                      child: Column(
+                        children: [
+                          TextFormField(
+                             style: theme.textTheme.displaySmall,
+                            decoration: InputDecoration(
+                              label: Text(
+                                "Email...",
+                                style: theme.textTheme.displaySmall,
+                              ),
+                              enabledBorder:const UnderlineInputBorder(
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(10),
+                                    bottomRight: Radius.circular(10),
+                                  ),
+                                  borderSide: BorderSide(
+                                      width: 2.5, color: Colors.white)),
                             ),
-                            enabledBorder:const UnderlineInputBorder(
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  bottomRight: Radius.circular(10),
-                                ),
-                                borderSide: BorderSide(
-                                    width: 2.5, color: Colors.white)),
                           ),
-                        ),
-                        SizedBox(
-                          height: size.height * 0.05,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            label: Text(
-                              "Password...",
+                          SizedBox(
+                            height: size.height * 0.05,
+                          ),
+                          TextFormField(
                               style: theme.textTheme.displaySmall,
+                                 obscureText: true,
+                            decoration: InputDecoration(
+                              label: Text(
+                                "Password...",
+                                style: theme.textTheme.displaySmall,
+                              ),
+                              enabledBorder: const UnderlineInputBorder(
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(10),
+                                    bottomRight: Radius.circular(10),
+                                  ),
+                                  borderSide: BorderSide(
+                                      width: 2.5, color: Colors.white)),
                             ),
-                            enabledBorder: const UnderlineInputBorder(
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  bottomRight: Radius.circular(10),
-                                ),
-                                borderSide: BorderSide(
-                                    width: 2.5, color: Colors.white)),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Forgot Password?",
-                        style: theme.textTheme.displaySmall,
+                        ],
                       ),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(
-                              context,
-                            );
-                          },
-                          child: Text(
-                            "Reset",
-                            style: theme2.textTheme.displaySmall,
-                          ))
-                    ],
-                  ),
-                  FloatingActionButton.extended(
-                    backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
-                    foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
-                    extendedTextStyle: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
                     ),
-                    extendedPadding:
-                        EdgeInsets.symmetric(horizontal: size.width * 0.5),
-                    shape: LinearBorder.none,
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    label: const Text("Sign In"),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.27),
-                    child: Row(
+                    Row(
                       children: [
-                         Text(
-                          "Not a wizard yet?",
+                        Text(
+                          "Forgot Password?",
                           style: theme.textTheme.displaySmall,
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const SignUp()));
+                              Navigator.pop(
+                                context,
+                              );
                             },
                             child: Text(
-                              "Join In",
+                              "Reset",
                               style: theme2.textTheme.displaySmall,
                             ))
                       ],
                     ),
-                  )
-                ],
+                    FloatingActionButton.extended(
+                      backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
+                      foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
+                      extendedTextStyle: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                      extendedPadding:
+                          EdgeInsets.symmetric(horizontal: size.width * 0.5),
+                      shape: LinearBorder.none,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      label: const Text("Sign In"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: size.width * 0.27),
+                      child: Row(
+                        children: [
+                           Text(
+                            "Not a wizard yet?",
+                            style: theme.textTheme.displaySmall,
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const SignUp()));
+                              },
+                              child: Text(
+                                "Join In",
+                                style: theme2.textTheme.displaySmall,
+                              ))
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
