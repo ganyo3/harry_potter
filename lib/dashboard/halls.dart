@@ -19,6 +19,7 @@ class HallsState extends State<Halls> {
      var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
@@ -78,7 +79,7 @@ class HallsState extends State<Halls> {
                                   // horizontal: size.width*0.45,
                                   ),
                                 child: Text(
-                                  'Book Details',
+                                  'Hall Details',
                                   style: theme.textTheme.displaySmall,
                                 ),
                               ),
@@ -125,7 +126,7 @@ class HallsState extends State<Halls> {
                                   // horizontal: size.width*0.45,
                                   ),
                                 child: Text(
-                                  'Book Details',
+                                  'Hall Details',
                                   style: theme.textTheme.displaySmall,
                                 ),
                               ),
@@ -171,7 +172,7 @@ class HallsState extends State<Halls> {
                                   // horizontal: size.width*0.45,
                                   ),
                                 child: Text(
-                                  'Book Details',
+                                  'Hall Details',
                                   style: theme.textTheme.displaySmall,
                                 ),
                               ),
@@ -217,7 +218,7 @@ class HallsState extends State<Halls> {
                                   // horizontal: size.width*0.45,
                                   ),
                                 child: Text(
-                                  'Book Details',
+                                  'Hall Details',
                                   style: theme.textTheme.displaySmall,
                                 ),
                               ),

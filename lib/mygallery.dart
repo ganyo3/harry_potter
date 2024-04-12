@@ -37,6 +37,7 @@ class GalleryState extends State<Gallery> {
     var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
@@ -73,3 +74,50 @@ class GalleryState extends State<Gallery> {
     );
   }
 }
+//  bottomNavigationBar: BottomNavigationBar(
+//         backgroundColor: const Color.fromARGB(255, 100, 100, 107),
+//         type: BottomNavigationBarType.fixed,
+//         // 5
+//         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+//         // TODO: Set selected tab bar
+//         currentIndex: _selectedIndex,
+//         onTap: _onItemTapped,
+//         // 6
+//         items: const <BottomNavigationBarItem>[
+//           BottomNavigationBarItem(
+//             icon: Icon(
+//               Icons.home,
+//               color: Colors.white,
+//             ),
+//             label: 'Home',
+//           ),
+//           BottomNavigationBarItem(
+//             icon: Icon(
+//               Icons.search,
+//               color: Colors.white,
+//             ),
+//             label: 'Search',
+//           ),
+//           BottomNavigationBarItem(
+//             label: 'Official Brand',
+//             icon: Icon(
+//               Icons.stars_rounded,
+//               color: Colors.white,
+//             ),
+//           ),
+//           BottomNavigationBarItem(
+//             label: 'Cart',
+//             icon: Icon(
+//               Icons.shopping_cart,
+//               color: Colors.white,
+//             ),
+//           ),
+//           BottomNavigationBarItem(
+//             label: 'Account',
+//             icon: Icon(
+//               Icons.person,
+//               color: Colors.white,
+//             ),
+//           ),
+//         ],
+//       ),

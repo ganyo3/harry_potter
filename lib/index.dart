@@ -22,6 +22,7 @@ class HomePageState extends State<HomePage> {
       debugShowCheckedModeBanner: false,
         theme: theme,
       home: Scaffold(
+        resizeToAvoidBottomInset: true,
         body: DecoratedBox(
           decoration: const BoxDecoration(
               // Image set to background of the body
