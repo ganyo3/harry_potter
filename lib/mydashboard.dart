@@ -191,7 +191,7 @@ class DashBoardState extends State<DashBoard> {
                         padding: EdgeInsets.symmetric(
                             vertical: size.height * .02,
                             horizontal: size.width * .08),
-                        children: [
+                        children: [  
                         
                           Column(
                             children: [
