@@ -19,6 +19,7 @@ class LogInState extends State<LogIn> {
     var theme = PotterTheme.dark();
     var theme2 = PotterTheme.light();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         foregroundColor: theme.appBarTheme.foregroundColor,
         backgroundColor: theme.appBarTheme.backgroundColor,

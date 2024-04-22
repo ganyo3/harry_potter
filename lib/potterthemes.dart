@@ -62,6 +62,11 @@ class PotterTheme {
       fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
+    titleMedium: TextStyle(
+      fontSize: 15,
+      color: Colors.amber,
+       fontWeight: FontWeight.w600,
+    )
   );
   // 3
   static ThemeData light() {

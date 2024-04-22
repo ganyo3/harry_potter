@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/potterthemes.dart';
 
+import '../Potter_Details/halldetail.dart';
+
 class Halls extends StatefulWidget {
   @override
   const Halls({super.key});
@@ -42,191 +44,282 @@ class HallsState extends State<Halls> {
               child:Column(
                 children: [
                   
-                  Container(
+                Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
                         Column(
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.15,
-                                  horizontal: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Hall Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                 padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.05,
-                                  // horizontal: size.width*0.45,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context, 
+                                    MaterialPageRoute(builder: (context)=>const HallDetail()));
+                                  },
+                                  label: const Text(
+                                    'Hall Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                child: Text(
-                                  'Hall Details',
-                                  style: theme.textTheme.displaySmall,
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
-            
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
                         Column(
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.15,
-                                  horizontal: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Hall Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                 padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.05,
-                                  // horizontal: size.width*0.45,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context, 
+                                    MaterialPageRoute(builder: (context)=>const HallDetail()));
+                                  },
+                                  label: const Text(
+                                    'Hall Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                child: Text(
-                                  'Hall Details',
-                                  style: theme.textTheme.displaySmall,
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
                         Column(
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.15,
-                                  horizontal: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Hall Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                 padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.05,
-                                  // horizontal: size.width*0.45,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context, 
+                                    MaterialPageRoute(builder: (context)=>const HallDetail()));
+                                  },
+                                  label: const Text(
+                                    'Hall Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                child: Text(
-                                  'Hall Details',
-                                  style: theme.textTheme.displaySmall,
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
                         Column(
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.15,
-                                  horizontal: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Hall Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                 padding:EdgeInsets.symmetric(
-                                  vertical:size.height*0.05,
-                                  // horizontal: size.width*0.45,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context, 
+                                    MaterialPageRoute(builder: (context)=>const HallDetail()));
+                                  },
+                                  label: const Text(
+                                    'Hall Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                child: Text(
-                                  'Hall Details',
-                                  style: theme.textTheme.displaySmall,
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
+                    ),
+                  ),
                 ],
               ),
             ),

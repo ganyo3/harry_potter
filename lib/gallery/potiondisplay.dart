@@ -1,48 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter/potterthemes.dart';
+import '../potterthemes.dart';
 
-class CharacterPage extends StatefulWidget {
+class PotionDisplay extends StatefulWidget {
   @override
-  const CharacterPage({super.key});
+  const PotionDisplay({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return CharacterPageState();
+    return PotionDisplayState();
   }
 }
 
-class CharacterPageState extends State<CharacterPage> {
+class PotionDisplayState extends State<PotionDisplay> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
     var theme2 = PotterTheme.light();
     // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
+     return Scaffold(
+        appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
-          "Character Collection",
+          "Magic-Potion Collection",
           style: theme.textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
-      body: DecoratedBox(
-        decoration: const BoxDecoration(
-          // Image set to background of the body
-          image: DecorationImage(
-              image: AssetImage("assets/images/potter-portrait-display.jpg"),
-              opacity: 0.8,
-              fit: BoxFit.fill),
-        ),
-        child: SafeArea(
-          child: Center(
+        body: DecoratedBox(
+          decoration: const BoxDecoration(
+            // Image set to background of the body
+            image: DecorationImage(
+                image: AssetImage("assets/images/harry-potter.jpg"),
+                fit: BoxFit.fill),
+          ),
+          child: SafeArea(
             child: SingleChildScrollView(
-              child: Column(
-                  children: [
-                     //Regular students
-                SizedBox(
+              child: Center(
+                  //A Welcome Text
+                  child: Column(
+                children: [
+                  //Regular students
+                  SizedBox(
                         height: size.height*01.4,
                         child: GridView(
                             physics: const NeverScrollableScrollPhysics(),
@@ -340,12 +340,11 @@ class CharacterPageState extends State<CharacterPage> {
                               ),                        
                             ]),
                       ),
-                  ],
-                ),
+                ],
+              )),
             ),
           ),
         ),
-      ),
     );
   }
 }

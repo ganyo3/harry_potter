@@ -18,208 +18,100 @@ class HouseState extends State<House> {
     var theme = PotterTheme.dark();
     var theme2 = PotterTheme.light();
     // TODO: implement build
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: theme.appBarTheme.backgroundColor,
-        //   foregroundColor: theme.appBarTheme.foregroundColor,
-        //   title: Text(
-        //     "Hogwarts' Houses",
-        //     style: theme.textTheme.titleLarge,
-        //   ),
-        //   centerTitle: true,
-        // ),
-        body: DecoratedBox(
-          decoration: const BoxDecoration(
-            // Image set to background of the body
-            image: DecorationImage(
-                image: AssetImage("assets/images/harry-potter.jpg"),
-                fit: BoxFit.fill),
-          ),
-          child: SafeArea(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
+        title: Text(
+          "Hogwarts Halls",
+          style: theme.textTheme.titleLarge,
+        ),
+        centerTitle: true,
+      ),
+      body: DecoratedBox(
+        decoration: const BoxDecoration(
+          // Image set to background of the body
+          image: DecorationImage(
+              image: AssetImage("assets/images/harry-potter.jpg"),
+              fit: BoxFit.fill),
+        ),
+        child: SafeArea(
+          child: Center(
             child: SingleChildScrollView(
-              child: Center(
-                  //A Welcome Text
-                  child: Column(
+              child: Column(
                 children: [
-                  //Regular students
+                  SizedBox(
+                    height: size.height * 0.005,
+                  ),
                   Container(
+                    margin: EdgeInsets.symmetric(horizontal: size.width * 0.02),
                     padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.05, 
-                      vertical: size.height * 0.02, 
-                      ),
-                    decoration: BoxDecoration(
-                         borderRadius: const BorderRadius.only(
-                                bottomLeft: Radius.circular(50),
-                                bottomRight: Radius.circular(50),
-                              ),
-                      color: theme.colorScheme.onBackground,
+                      vertical: size.height * 0.15,
                     ),
-                    child: Text(
-                      "House gallery",
-                      style: theme.textTheme.displayMedium
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage("assets/images/gryffindor.jpg"),
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: size.height * 0.7,
-                    child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 7,
-                          mainAxisSpacing: 7,
-                          childAspectRatio: .66,
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: size.height * .02,
-                            horizontal: size.width * .02),
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 8,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 8,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 8,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 8,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ]),
+                    height: size.height * 0.005,
+                  ),
+                  SizedBox(
+                    height: size.height * 0.005,
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: size.width * 0.02),
+                    padding: EdgeInsets.symmetric(
+                      vertical: size.height * 0.15,
+                    ),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage("assets/images/product1.jpg"),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.015,
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: size.width * 0.02),
+                    padding: EdgeInsets.symmetric(
+                      vertical: size.height * 0.15,
+                    ),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage("assets/images/product1.jpg"),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.015,
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: size.width * 0.02),
+                    padding: EdgeInsets.symmetric(
+                      vertical: size.height * 0.15,
+                    ),
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage("assets/images/product1.jpg"),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.015,
                   ),
                 ],
-              )),
+              ),
             ),
           ),
         ),

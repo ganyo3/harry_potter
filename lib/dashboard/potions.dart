@@ -16,13 +16,14 @@ class PotionsState extends State<Potions> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
+    var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
-          "Potion Collection",
+          "Characters",
           style: theme.textTheme.titleLarge,
         ),
         centerTitle: true,
@@ -31,358 +32,289 @@ class PotionsState extends State<Potions> {
         decoration: const BoxDecoration(
           // Image set to background of the body
           image: DecorationImage(
-              image: AssetImage("assets/images/magicpotion.jpg"),
+              image: AssetImage("assets/images/potter-portrait-display.jpg"),
+              opacity: 0.8,
               fit: BoxFit.fill),
         ),
         child: SafeArea(
           child: Center(
-            //A Welcome Text
             child: SingleChildScrollView(
               child: Column(
                 children: [
+
                   Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.15,
-                      vertical: size.height * 0.02,
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50),
-                      ),
-                      color: theme.colorScheme.onBackground,
+                        color: theme2.colorScheme.onBackground,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: size.height * 0.2,
+                            left: size.height * 0.01,
+                          ),
+                          child: Text(
+                            'Potion Detail',
+                            style: theme.textTheme.displaySmall,
+                          ),
+                        ),                    
+                      ],
                     ),
-                    child: Text("Magic Potions",
-                        style: theme.textTheme.displayMedium),
                   ),
-                  SizedBox(
-                    height: size.height * 0.7,
-                    child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 7,
-                          mainAxisSpacing: size.height * 0.025,
-                          childAspectRatio: .66,
+
+ Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
+                    ),
+                    decoration: BoxDecoration(
+                        color: theme2.colorScheme.onBackground,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
                         ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: size.height * .02,
-                            horizontal: size.width * .02),
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Details',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: size.height * 0.2,
+                            left: size.height * 0.01,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Details',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
+                          child: Text(
+                            'Potion Detail',
+                            style: theme.textTheme.displaySmall,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Details',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Details',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ]),
+                        ),                    
+                      ],
+                    ),
                   ),
-                  SizedBox(
-                    height: size.height * 0.7,
-                    child: GridView(
-                        physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 7,
-                          mainAxisSpacing: size.height * 0.025,
-                          childAspectRatio: .66,
+
+                 Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
+                    ),
+                    decoration: BoxDecoration(
+                        color: theme2.colorScheme.onBackground,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
                         ),
-                        padding: EdgeInsets.symmetric(
-                            vertical: size.height * .02,
-                            horizontal: size.width * .02),
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: size.height * 0.2,
+                            left: size.height * 0.01,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
+                          child: Text(
+                            'Potion Detail',
+                            style: theme.textTheme.displaySmall,
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onBackground,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                topRight: Radius.circular(50),
-                                bottomLeft: Radius.circular(10),
-                                bottomRight: Radius.circular(10),
-                              ),
-                            ),
-                            child: Column(
-                              children: [
-                                Expanded(
-                                  flex: 4,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(50),
-                                          topRight: Radius.circular(50),
-                                        ),
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              'assets/images/product1.jpg'),
-                                          fit: BoxFit.fill,
-                                        )),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    'Name',
-                                    style: theme.textTheme.displaySmall,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ]),
+                        ),                    
+                      ],
+                    ),
                   ),
+
+                 Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
+                    ),
+                    decoration: BoxDecoration(
+                        color: theme2.colorScheme.onBackground,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: size.height * 0.2,
+                            left: size.height * 0.01,
+                          ),
+                          child: Text(
+                            'Potion Detail',
+                            style: theme.textTheme.displaySmall,
+                          ),
+                        ),                    
+                      ],
+                    ),
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
+                    ),
+                    decoration: BoxDecoration(
+                        color: theme2.colorScheme.onBackground,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: size.height * 0.2,
+                            left: size.height * 0.01,
+                          ),
+                          child: Text(
+                            'Potion Detail',
+                            style: theme.textTheme.displaySmall,
+                          ),
+                        ),                    
+                      ],
+                    ),
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
+                    ),
+                    decoration: BoxDecoration(
+                        color: theme2.colorScheme.onBackground,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: size.height * 0.2,
+                            left: size.height * 0.01,
+                          ),
+                          child: Text(
+                            'Potion Detail',
+                            style: theme.textTheme.displaySmall,
+                          ),
+                        ),                    
+                      ],
+                    ),
+                  ),
+
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
+                    ),
+                    decoration: BoxDecoration(
+                        color: theme2.colorScheme.onBackground,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            bottom: size.height * 0.2,
+                            left: size.height * 0.01,
+                          ),
+                          child: Text(
+                            'Potion Detail',
+                            style: theme.textTheme.displaySmall,
+                          ),
+                        ),                    
+                      ],
+                    ),
+                  ),
+
                 ],
               ),
             ),

@@ -24,13 +24,3 @@ class HarryPotterState extends State<HarryPotter> {
     return const MaterialApp();
   }
 }
-
-//flutter docs
-//colors: (maroune red,gold/amber,black/grey and white) Theming
-//screens(welcome/login/signup/darshboard(bottons)/gallery.
-//characters, potions,spells, wands,movies,books
-//Harry Potter API (getting information online)
-
-//Protest Revolution, Protest riot,Protest Guerrilla,GreatVibes
-//Rubik Glitch Pop, Creepster    
-                                  

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/Potter_Details/wand_detail.dart';
 import 'package:harry_potter/potterthemes.dart';
 
 class Wands extends StatefulWidget {
@@ -14,7 +15,7 @@ class Wands extends StatefulWidget {
 class WandsState extends State<Wands> {
   @override
   Widget build(BuildContext context) {
-     var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
     var theme2 = PotterTheme.light();
     // TODO: implement build
@@ -23,7 +24,7 @@ class WandsState extends State<Wands> {
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
-          "Wand Collection",
+          "Characters",
           style: theme.textTheme.titleLarge,
         ),
         centerTitle: true,
@@ -32,7 +33,7 @@ class WandsState extends State<Wands> {
         decoration: const BoxDecoration(
           // Image set to background of the body
           image: DecorationImage(
-              image: AssetImage("assets/images/wandlist.jpg"),
+              image: AssetImage("assets/images/potter-portrait-display.jpg"),
               opacity: 0.8,
               fit: BoxFit.fill),
         ),
@@ -41,335 +42,489 @@ class WandsState extends State<Wands> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.01,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.only(
-                                  top:size.height*0.3,
-                                  right: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Wands Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: size.height * 0.2,
-                                  left: size.height * 0.01,
-                                ),
-                                child: Text(
-                                  'Movie details',
-                                  style: theme.textTheme.displaySmall,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context)=>const WandDetail()));
+                                  },
+                                  label: const Text(
+                                    'Wands Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
-            
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.only(
-                                  top:size.height*0.3,
-                                  right: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Wands Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: size.height * 0.2,
-                                  left: size.height * 0.01,
-                                ),
-                                child: Text(
-                                  'Movie details',
-                                  style: theme.textTheme.displaySmall,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context)=>const WandDetail()));
+                                  },
+                                  label: const Text(
+                                    'Wands Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
-            
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.only(
-                                  top:size.height*0.3,
-                                  right: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Wands Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: size.height * 0.2,
-                                  left: size.height * 0.01,
-                                ),
-                                child: Text(
-                                  'Movie details',
-                                  style: theme.textTheme.displaySmall,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context)=>const WandDetail()));
+                                  },
+                                  label: const Text(
+                                    'Wands Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
-            
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.only(
-                                  top:size.height*0.3,
-                                  right: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Wands Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: size.height * 0.2,
-                                  left: size.height * 0.01,
-                                ),
-                                child: Text(
-                                  'Movie details',
-                                  style: theme.textTheme.displaySmall,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context)=>const WandDetail()));
+                                  },
+                                  label: const Text(
+                                    'Wands Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
-            
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.only(
-                                  top:size.height*0.3,
-                                  right: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Wands Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: size.height * 0.2,
-                                  left: size.height * 0.01,
-                                ),
-                                child: Text(
-                                  'Movie details',
-                                  style: theme.textTheme.displaySmall,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context)=>const WandDetail()));
+                                  },
+                                  label: const Text(
+                                    'Wands Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
-            
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.only(
-                                  top:size.height*0.3,
-                                  right: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Wands Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: size.height * 0.2,
-                                  left: size.height * 0.01,
-                                ),
-                                child: Text(
-                                  'Movie details',
-                                  style: theme.textTheme.displaySmall,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context)=>const WandDetail()));
+                                  },
+                                  label: const Text(
+                                    'Wands Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
-            
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                      horizontal: size.width*0.02,
-                      vertical: size.height*0.02,
+                      horizontal: size.width * 0.02,
+                      vertical: size.height * 0.005,
                     ),
                     decoration: BoxDecoration(
                         color: theme2.colorScheme.onBackground,
                         borderRadius: BorderRadius.circular(10)),
-                    child: Column(
+                    child: Row(
                       children: [
-                        Row(
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: size.height * 0.3,
+                            right: size.width * 0.45,
+                          ),
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(10)),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/product1.jpg',
+                                  ),
+                                  fit: BoxFit.fill)),
+                        ),
+                        Column(
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                              Container(
-                                padding:EdgeInsets.only(
-                                  top:size.height*0.3,
-                                  right: size.width*0.45,
-                                  ),
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)
-                                  ),
-                                    image: DecorationImage(image: AssetImage(
-                                      'assets/images/product1.jpg',),
-                                      fit: BoxFit.fill
-                                      )),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                bottom: size.height * 0.2,
+                                left: size.height * 0.01,
+                              ),
+                              child: Text(
+                                'Wands Name',
+                                style: theme.textTheme.displaySmall,
+                              ),
                             ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                  bottom: size.height * 0.2,
-                                  left: size.height * 0.01,
-                                ),
-                                child: Text(
-                                  'Movie details',
-                                  style: theme.textTheme.displaySmall,
+                            SizedBox(
+                              width: size.width * 0.25,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: size.width * 0.03),
+                              child: SizedBox(
+                                width: size.width * 0.45,
+                                height: size.width * 0.1,
+                                child: FloatingActionButton.extended(
+                                  shape: ContinuousRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor:
+                                      theme.colorScheme.onBackground,
+                                  extendedPadding: const EdgeInsets.all(55),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                    MaterialPageRoute(builder: (context)=>const WandDetail()));
+                                  },
+                                  label: const Text(
+                                    'Wands Details',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ]),
+                            ),
                           ],
-                        ),
+                        )
                       ],
-                    )),
+                    ),
+                  ),
                 ],
               ),
             ),

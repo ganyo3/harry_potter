@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/Potter_Details/moviedetail.dart';
 import 'package:harry_potter/potterthemes.dart';
 // import '../potterapi-main/api/index.js';
 
@@ -34,338 +35,323 @@ class MoviesState extends State<Movies> {
           // Image set to background of the body
           image: DecorationImage(
               image: AssetImage("assets/images/potter-portrait-display.jpg"),
-              opacity: 0.8,
               fit: BoxFit.fill),
         ),
         child: SafeArea(
           child: Center(
             child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.02,
-                        vertical: size.height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                          color: theme2.colorScheme.onBackground,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(
-                                        top: size.height * 0.3,
-                                        right: size.width * 0.45,
-                                      ),
+              child: Column(children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      height: size.height * 01,
+                      child: GridView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 7,
+                            mainAxisSpacing: 7,
+                            childAspectRatio: .66,
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              vertical: size.height * .02,
+                              horizontal: size.width * .02),
+                          children: [
+                            //Movie Collections
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MovieDetail()),
+                                );
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
                                       decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10)),
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
                                           image: DecorationImage(
+                                              fit: BoxFit.fill,
                                               image: AssetImage(
-                                                'assets/images/product1.jpg',
-                                              ),
-                                              fit: BoxFit.fill)),
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: size.height * 0.2,
-                                        left: size.height * 0.01,
-                                      ),
-                                      child: Text(
-                                        'Movie details',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    ),
-                                  ]),
-                            ],
-                          ),
-                        ],
-                      )),
-                  Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.02,
-                        vertical: size.height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                          color: theme2.colorScheme.onBackground,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(
-                                        top: size.height * 0.3,
-                                        right: size.width * 0.45,
-                                      ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                            //Character Collections
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MovieDetail()));
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
                                       decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10)),
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
                                           image: DecorationImage(
+                                              fit: BoxFit.fill,
                                               image: AssetImage(
-                                                'assets/images/product1.jpg',
-                                              ),
-                                              fit: BoxFit.fill)),
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: size.height * 0.2,
-                                        left: size.height * 0.01,
-                                      ),
-                                      child: Text(
-                                        'Movie details',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    ),
-                                  ]),
-                            ],
-                          ),
-                        ],
-                      )),
-                  Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.02,
-                        vertical: size.height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                          color: theme2.colorScheme.onBackground,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(
-                                        top: size.height * 0.3,
-                                        right: size.width * 0.45,
-                                      ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                            //Character Collections
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MovieDetail()));
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
                                       decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10)),
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
                                           image: DecorationImage(
+                                              fit: BoxFit.fill,
                                               image: AssetImage(
-                                                'assets/images/product1.jpg',
-                                              ),
-                                              fit: BoxFit.fill)),
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: size.height * 0.2,
-                                        left: size.height * 0.01,
-                                      ),
-                                      child: Text(
-                                        'Movie details',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    ),
-                                  ]),
-                            ],
-                          ),
-                        ],
-                      )),
-                  Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.02,
-                        vertical: size.height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                          color: theme2.colorScheme.onBackground,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(
-                                        top: size.height * 0.3,
-                                        right: size.width * 0.45,
-                                      ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                            //Wand Collections
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MovieDetail()));
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
                                       decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10)),
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
                                           image: DecorationImage(
+                                              fit: BoxFit.fill,
                                               image: AssetImage(
-                                                'assets/images/product1.jpg',
-                                              ),
-                                              fit: BoxFit.fill)),
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: size.height * 0.2,
-                                        left: size.height * 0.01,
-                                      ),
-                                      child: Text(
-                                        'Movie details',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    ),
-                                  ]),
-                            ],
-                          ),
-                        ],
-                      )),
-                  Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.02,
-                        vertical: size.height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                          color: theme2.colorScheme.onBackground,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(
-                                        top: size.height * 0.3,
-                                        right: size.width * 0.45,
-                                      ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                            //Magic Spells
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MovieDetail()));
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
                                       decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10)),
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
                                           image: DecorationImage(
+                                              fit: BoxFit.fill,
                                               image: AssetImage(
-                                                'assets/images/product1.jpg',
-                                              ),
-                                              fit: BoxFit.fill)),
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: size.height * 0.2,
-                                        left: size.height * 0.01,
-                                      ),
-                                      child: Text(
-                                        'Movie details',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    ),
-                                  ]),
-                            ],
-                          ),
-                        ],
-                      )),
-                  Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.02,
-                        vertical: size.height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                          color: theme2.colorScheme.onBackground,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(
-                                        top: size.height * 0.3,
-                                        right: size.width * 0.45,
-                                      ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                            //Magic Potions
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MovieDetail()));
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
                                       decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10)),
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
                                           image: DecorationImage(
+                                              fit: BoxFit.fill,
                                               image: AssetImage(
-                                                'assets/images/product1.jpg',
-                                              ),
-                                              fit: BoxFit.fill)),
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: size.height * 0.2,
-                                        left: size.height * 0.01,
-                                      ),
-                                      child: Text(
-                                        'Movie details',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    ),
-                                  ]),
-                            ],
-                          ),
-                        ],
-                      )),
-                  Container(
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.02,
-                        vertical: size.height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                          color: theme2.colorScheme.onBackground,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(
-                                        top: size.height * 0.3,
-                                        right: size.width * 0.45,
-                                      ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                            //Magic Artifacts
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MovieDetail()));
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
                                       decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              bottomLeft: Radius.circular(10)),
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
                                           image: DecorationImage(
+                                              fit: BoxFit.fill,
                                               image: AssetImage(
-                                                'assets/images/product1.jpg',
-                                              ),
-                                              fit: BoxFit.fill)),
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        bottom: size.height * 0.2,
-                                        left: size.height * 0.01,
-                                      ),
-                                      child: Text(
-                                        'Movie details',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                            //Hoqwarts Houses
+                            FloatingActionButton.large(
+                              backgroundColor: theme.colorScheme.onBackground,
+                              foregroundColor: theme2
+                                  .floatingActionButtonTheme.foregroundColor,
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(25))),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MovieDetail()));
+                              },
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                          ),
+                                          image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image: AssetImage(
+                                                  "assets/images/product1.jpg"))),
                                     ),
-                                  ]),
-                            ],
-                          ),
-                        ],
-                      )),
-                ],
-              ),
+                                  ),
+                                  const Expanded(
+                                      flex: 1, child: Text("Movie Name"))
+                                ],
+                              ),
+                            ),
+                          ]),
+                    ),
+                  ],
+                ),
+              ]),
             ),
           ),
         ),

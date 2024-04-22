@@ -19,7 +19,7 @@ class SignUpState extends State<SignUp> {
     var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
-     resizeToAvoidBottomInset: true,
+     resizeToAvoidBottomInset: false,
       appBar: AppBar(
         foregroundColor: theme.appBarTheme.foregroundColor,
         backgroundColor: theme.appBarTheme.backgroundColor,
