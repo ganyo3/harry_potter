@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/Potter_Details/detailpage.dart';
 import '../potterthemes.dart';
 
 class CharacterDetail extends StatefulWidget {
-  @override
-  const CharacterDetail({super.key});
+  final Character_Detail details;
+  const CharacterDetail(Widget buildDetailCard, {super.key,
+   required this.details,
+  });
 
   @override
   State<StatefulWidget> createState() {
@@ -21,52 +24,37 @@ class CharacterDetailState extends State<CharacterDetail> {
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
-        title: const Text(
-          "Character Details",
-        ),
+        title: Text(widget.details.name),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              
               Stack(
                 children: [
-                 
                   Container(
                     padding: EdgeInsets.only(
                       top: size.height * 0.55,
                     ),
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(25),
-                            bottomRight: Radius.circular(25)),
+                    decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                            // bottomLeft: Radius.circular(25),
+                            bottomRight: Radius.circular(100)),
                         image: DecorationImage(
-                            image: AssetImage(
-                              "assets/images/9767006-mobile-wallpaper-alan-rickman-harry.jpg",
-                            ),
+                            image: AssetImage(widget.details.imageUrl),
                             fit: BoxFit.fill)),
                   ),
-
-                   Positioned(
+                  Positioned(
                     bottom: 15,
                     left: 10,
-                    child: Column(
-                      children: [
-                        Text("Name of Character",
-                        style: theme.textTheme.displayMedium,),
-                        Padding(
-                          padding: EdgeInsets.only(right: size.width*0.34),
-                          child: Text("Date of Birth\nPosition", style: theme2.textTheme.displaySmall,),
-                        ),
-                        // Text("Position", style: theme2.textTheme.displaySmall,),
-                      ],
+                    child: Text(
+                      widget.details.name,
+                      style: theme.textTheme.displayMedium,
                     ),
-                    ),
+                  ),
                 ],
               ),
-
               SizedBox(
                 height: size.height * 0.02,
               ),
@@ -74,15 +62,14 @@ class CharacterDetailState extends State<CharacterDetail> {
                 "About Character",
                 style: theme2.textTheme.titleLarge,
               ),
-               Divider(
+              Divider(
                 color: Colors.black,
-                indent: size.width*0.045,
-                endIndent: size.width*0.045,
+                indent: size.width * 0.045,
+                endIndent: size.width * 0.045,
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                child: const Text(
-                    "Monitor search engine rankings effectively, observing SERP features such as snippets and sitelinks, along with essential details like meta titles and descriptions.\t\nExplore diverse image search results, including thumbnail visuals, source URLs, and image context for enhanced visual search analysis."),
+                child: Text(widget.details.label),
               )
             ],
           ),

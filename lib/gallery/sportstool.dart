@@ -16,7 +16,7 @@ class SportToolsState extends State<SportTools> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
-    var theme2 = PotterTheme.light();
+    // var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(

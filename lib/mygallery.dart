@@ -54,13 +54,13 @@ class GalleryState extends State<Gallery> {
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.08,
+                          vertical: size.height * 0.06,
                           horizontal: size.width * 0.39,
                         ),
                         decoration: const BoxDecoration(
-                           borderRadius: BorderRadius.only(
-                           topRight: Radius.circular(50),
-                           bottomRight: Radius.circular(50),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50),
+                            bottomRight: Radius.circular(50),
                           ),
                           image: DecorationImage(
                             fit: BoxFit.fill,
@@ -78,35 +78,33 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: size.height * 0.005,
-                ),                
-                SizedBox(
-                  height: size.height * 0.005,
+             Divider(
+                  color: Colors.black,
+                  endIndent: size.width*0.05,
                 ),
                 GestureDetector(
-                    onTap: () {
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const MagicWand()));
-                    },
+                  },
                   child: Row(
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.08,
+                          vertical: size.height * 0.06,
                           horizontal: size.width * 0.36,
                         ),
                         decoration: const BoxDecoration(
-                           borderRadius: BorderRadius.only(
-                           topRight: Radius.circular(50),
-                           bottomRight: Radius.circular(50),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50),
+                            bottomRight: Radius.circular(50),
                           ),
                           image: DecorationImage(
                             fit: BoxFit.fill,
-                            image:
-                                AssetImage("assets/images/wand-collection-.jpeg"),
+                            image: AssetImage(
+                                "assets/images/wand-collection-.jpeg"),
                           ),
                         ),
                       ),
@@ -120,27 +118,28 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: size.height * 0.005,
+               Divider(
+                  color: Colors.black,
+                  endIndent: size.width*0.05,
                 ),
                 GestureDetector(
-                    onTap: () {
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const SportTools()));
-                    },
+                  },
                   child: Row(
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.08,
+                          vertical: size.height * 0.06,
                           horizontal: size.width * 0.39,
                         ),
                         decoration: const BoxDecoration(
-                           borderRadius: BorderRadius.only(
-                           topRight: Radius.circular(50),
-                           bottomRight: Radius.circular(50),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50),
+                            bottomRight: Radius.circular(50),
                           ),
                           image: DecorationImage(
                             fit: BoxFit.fill,
@@ -158,31 +157,33 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: size.height * 0.005,
+               Divider(
+                  color: Colors.black,
+                  endIndent: size.width*0.05,
                 ),
                 GestureDetector(
-                    onTap: () {
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const PotionDisplay()));
-                    },
+                  },
                   child: Row(
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.08,
+                          vertical: size.height * 0.06,
                           horizontal: size.width * 0.36,
                         ),
                         decoration: const BoxDecoration(
-                           borderRadius: BorderRadius.only(
-                           topRight: Radius.circular(50),
-                           bottomRight: Radius.circular(50),
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(50),
+                            bottomRight: Radius.circular(50),
                           ),
                           image: DecorationImage(
                             fit: BoxFit.fill,
-                            image: AssetImage("assets/images/magicpotion.jpg"),
+                            image:
+                                AssetImage("assets/images/magicpotion.jpg"),
                           ),
                         ),
                       ),
@@ -196,27 +197,28 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: size.height * 0.005,
+                Divider(
+                  color: Colors.black,
+                  endIndent: size.width*0.05,
                 ),
                 GestureDetector(
-                    onTap: () {
+                  onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const House()));
-                    },
+                  },
                   child: Row(
                     children: [
                       Container(
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.08,
+                          vertical: size.height * 0.06,
                           horizontal: size.width * 0.39,
                         ),
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
-                           topRight: Radius.circular(50),
-                           bottomRight: Radius.circular(50),
+                            topRight: Radius.circular(50),
+                            bottomRight: Radius.circular(50),
                           ),
                           image: DecorationImage(
                             fit: BoxFit.fill,
@@ -234,10 +236,12 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-                 SizedBox(
-                  height: size.height * 0.005,
+                 Divider(
+                  color: Colors.black,
+                  endIndent: size.width*0.05,
                 ),
-              ],
+                
+               ],
             ),
           ),
         ),
