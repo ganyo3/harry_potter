@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import '../potterthemes.dart';
+import 'detailpage.dart';
 
 class BookDetail extends StatefulWidget {
-  @override
-  const BookDetail({super.key});
+ final Book_Detail details;
+  const BookDetail({super.key, required this.details});
 
   @override
   State<StatefulWidget> createState() {
@@ -21,8 +22,8 @@ class BookDetailState extends State<BookDetail> {
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
-        title: const Text(
-          "Novel Details",
+       title: Text(
+          widget.details.name,
         ),
       ),
       body: SafeArea(
@@ -36,34 +37,20 @@ class BookDetailState extends State<BookDetail> {
                     padding: EdgeInsets.only(
                       top: size.height * 0.55,
                     ),
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                    decoration: BoxDecoration(
+                        borderRadius:const BorderRadius.only(
                             bottomLeft: Radius.circular(25),
                             bottomRight: Radius.circular(25)),
                         image: DecorationImage(
-                            image: AssetImage(
-                              "assets/images/novels.jpg",
-                            ),
+                            image: AssetImage(widget.details.imageUrl),
                             fit: BoxFit.fill)),
                   ),
                   Positioned(
                     bottom: 15,
                     left: 10,
-                    child: Column(
-                      children: [
-                        Text(
-                          "Name of Novel",
-                          style: theme.textTheme.displayMedium,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(right: size.width * 0.18),
-                          child: Text(
-                            "Date Released",
-                            style: theme2.textTheme.displaySmall,
-                          ),
-                        ),
-                        // Text("Position", style: theme2.textTheme.displaySmall,),
-                      ],
+                    child: Text(
+                        widget.details.name,
+                      style: theme.textTheme.displayMedium,
                     ),
                   ),
                 ],
@@ -82,8 +69,7 @@ class BookDetailState extends State<BookDetail> {
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                child: const Text(
-                    "Monitor search engine rankings effectively, observing SERP features such as snippets and sitelinks, along with essential details like meta titles and descriptions.\t\nExplore diverse image search results, including thumbnail visuals, source URLs, and image context for enhanced visual search analysis."),
+                child: Text(widget.details.label),
               )
             ],
           ),

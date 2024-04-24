@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/Potter_Details/detailpage.dart';
 import '../potterthemes.dart';
 
 class WandDetail extends StatefulWidget {
-  @override
-  const WandDetail({super.key});
+  final Wand_Detail detail;
+  const WandDetail({super.key, required this.detail});
 
   @override
   State<StatefulWidget> createState() {
@@ -21,9 +22,7 @@ class WandDetailState extends State<WandDetail> {
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
-        title: const Text(
-          "Wand Details",
-        ),
+        title: Text(widget.detail.name),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -36,34 +35,19 @@ class WandDetailState extends State<WandDetail> {
                     padding: EdgeInsets.only(
                       top: size.height * 0.55,
                     ),
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(25),
-                            bottomRight: Radius.circular(25)),
+                    decoration: BoxDecoration(
+                        borderRadius:const BorderRadius.only(
+                            bottomRight: Radius.circular(100)),
                         image: DecorationImage(
-                            image: AssetImage(
-                              "assets/images/wandlist.jpg",
-                            ),
+                            image: AssetImage(widget.detail.imageUrl),
                             fit: BoxFit.fill)),
                   ),
                   Positioned(
                     bottom: 15,
                     left: 10,
-                    child: Column(
-                      children: [
-                        Text(
-                          "Name of Wand",
-                          style: theme.textTheme.displayMedium,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(right: size.width * 0.18),
-                          child: Text(
-                            "Date Carved",
-                            style: theme2.textTheme.displaySmall,
-                          ),
-                        ),
-                        // Text("Position", style: theme2.textTheme.displaySmall,),
-                      ],
+                    child: Text(
+                     widget.detail.name,
+                      style: theme.textTheme.displayMedium,
                     ),
                   ),
                 ],
@@ -82,8 +66,7 @@ class WandDetailState extends State<WandDetail> {
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                child: const Text(
-                    "Monitor search engine rankings effectively, observing SERP features such as snippets and sitelinks, along with essential details like meta titles and descriptions.\t\nExplore diverse image search results, including thumbnail visuals, source URLs, and image context for enhanced visual search analysis."),
+                child:Text(widget.detail.label),
               )
             ],
           ),

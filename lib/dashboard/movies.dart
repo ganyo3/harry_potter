@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/potterthemes.dart';
-import '../Potter_Details/characterdetail.dart';
 import '../Potter_Details/detailpage.dart';
 import '../Potter_Details/moviedetail.dart';
-// import '../potterapi-main/api/index.js';
 
 class Movies extends StatefulWidget {
   @override
@@ -96,7 +94,7 @@ class MoviesState extends State<Movies> {
       ),
     );
   }
-
+@override
   Widget build(BuildContext context) {
     // var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
@@ -120,15 +118,13 @@ class MoviesState extends State<Movies> {
               fit: BoxFit.fill),
         ),
         child: SafeArea(
-          child: Container(
-            child: ListView.builder(
+          child: ListView.builder(
               itemCount: Movie_Detail.samples.length,
               itemBuilder: (BuildContext context, index) {
                 //returning recipe cards
                 return buildDetailCard(Movie_Detail.samples[index]);
               },
             ),
-        ),
         ),
       ),
     );

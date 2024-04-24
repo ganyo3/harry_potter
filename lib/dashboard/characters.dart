@@ -94,7 +94,7 @@ class CharacterState extends State<Character> {
       ),
     );
   }
-
+@override
   Widget build(BuildContext context) {
     // var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
@@ -119,15 +119,13 @@ class CharacterState extends State<Character> {
               fit: BoxFit.fill),
         ),
         child: SafeArea(
-          child: Container(
-            child: ListView.builder(
+          child: ListView.builder(
               itemCount: Character_Detail.samples.length,
               itemBuilder: (BuildContext context, index) {
                 //returning recipe cards
                 return buildDetailCard(Character_Detail.samples[index]);
               },
             ),
-          ),
         ),
       ),
     );

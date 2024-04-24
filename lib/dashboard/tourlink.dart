@@ -40,7 +40,7 @@ class TourLinkState extends State<TourLink> {
         child: Center(
           //A Welcome Text
           child: SingleChildScrollView(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             child: Column(children: [
               Container(
                 padding: EdgeInsets.symmetric(

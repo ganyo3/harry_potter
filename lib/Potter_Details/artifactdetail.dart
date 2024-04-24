@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import '../potterthemes.dart';
+import 'detailpage.dart';
 
 class ArtifactDetail extends StatefulWidget {
-  @override
-  const ArtifactDetail({super.key});
+  final Artifact_Detail details;
+  const ArtifactDetail({super.key, required this.details});
 
   @override
   State<StatefulWidget> createState() {
@@ -21,9 +22,7 @@ class ArtifactDetailState extends State<ArtifactDetail> {
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
-        title: const Text(
-          "Artifact Details",
-        ),
+        title: Text(widget.details.name),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -36,34 +35,20 @@ class ArtifactDetailState extends State<ArtifactDetail> {
                     padding: EdgeInsets.only(
                       top: size.height * 0.55,
                     ),
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
+                    decoration: BoxDecoration(
+                        borderRadius:const BorderRadius.only(
                             bottomLeft: Radius.circular(25),
                             bottomRight: Radius.circular(25)),
                         image: DecorationImage(
-                            image: AssetImage(
-                              "assets/images/golden_snitch.jpg",
-                            ),
+                            image: AssetImage(widget.details.imageUrl),
                             fit: BoxFit.fill)),
                   ),
                   Positioned(
                     bottom: 15,
                     left: 10,
-                    child: Column(
-                      children: [
-                        Text(
-                          "Name of Artifact",
-                          style: theme.textTheme.displayMedium,
-                        ),
-                        // Padding(
-                        //   padding: EdgeInsets.only(right: size.width * 0.18),
-                        //   child: Text(
-                        //     "Date Released",
-                        //     style: theme2.textTheme.displaySmall,
-                        //   ),
-                        // ),
-                        // Text("Position", style: theme2.textTheme.displaySmall,),
-                      ],
+                    child: Text(
+                     widget.details.name,
+                      style: theme.textTheme.displayMedium,
                     ),
                   ),
                 ],
@@ -82,8 +67,7 @@ class ArtifactDetailState extends State<ArtifactDetail> {
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                child: const Text(
-                    "Monitor search engine rankings effectively, observing SERP features such as snippets and sitelinks, along with essential details like meta titles and descriptions.\t\nExplore diverse image search results, including thumbnail visuals, source URLs, and image context for enhanced visual search analysis."),
+                child: Text(widget.details.label),
               )
             ],
           ),
