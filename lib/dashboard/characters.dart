@@ -14,89 +14,16 @@ class Character extends StatefulWidget {
 }
 
 class CharacterState extends State<Character> {
-  Widget buildDetailCard(Character_Detail details) {
-    var size = MediaQuery.of(context).size;
-    var theme = PotterTheme.dark();
-    var theme2 = PotterTheme.light();
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.005,
-          vertical: size.width * 0.005,
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-              color: theme2.colorScheme.onBackground,
-              borderRadius: BorderRadius.circular(10)),
-          child: Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(
-                  top: size.height * 0.3,
-                  right: size.width * 0.45,
-                ),
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10)),
-                    image: DecorationImage(
-                        image: AssetImage(
-                          details.imageUrl,
-                        ),
-                        fit: BoxFit.fill)),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: size.height * 0.2,
-                      left: size.height * 0.01,
-                    ),
-                    child: Text(
-                      'Character Name',
-                      style: theme.textTheme.displaySmall,
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width * 0.25,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.03),
-                    child: SizedBox(
-                      width: size.width * 0.45,
-                      height: size.width * 0.1,
-                      child: FloatingActionButton.extended(
-                        shape: ContinuousRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        backgroundColor: theme.colorScheme.onBackground,
-                        extendedPadding: const EdgeInsets.all(55),
-                        onPressed: () {
-                          Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context)=>CharacterDetail(buildDetailCard(details),details: details)),
-                    );
-                        },
-                        label: const Text(
-                          'Character Details',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+  late Future<dynamic> futureAlbum;
+  @override
+  void initState() {
+    futureAlbum = fetchDetailAlbum();
+    super.initState();
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
-    // var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
     // var theme2 = PotterTheme.light();
     // TODO: implement build
@@ -119,34 +46,122 @@ class CharacterState extends State<Character> {
               fit: BoxFit.fill),
         ),
         child: SafeArea(
-          child: ListView.builder(
-              itemCount: Character_Detail.samples.length,
-              itemBuilder: (BuildContext context, index) {
-                //returning recipe cards
-                return buildDetailCard(Character_Detail.samples[index]);
+          child: RefreshIndicator(
+            onRefresh: () async{
+              return Future<void>.delayed(
+                const Duration(seconds:3)
+              );
+            },
+            child: FutureBuilder(
+              future: futureAlbum,
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.02,
+                                vertical: size.height * 0.005),
+                            decoration: const BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10))),
+                            child: GestureDetector(
+                              child: Row(
+                                children: [
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                      vertical: size.height * 0.05,
+                                      horizontal: size.width * 0.15,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(
+                                          topLeft: Radius.circular(10),
+                                          bottomLeft: Radius.circular(10)),
+                                      image: DecorationImage(
+                                          alignment: Alignment.centerLeft,
+                                          image: NetworkImage(
+                                            snapshot.data[index]['attributes']
+                                                    ['image'] ??
+                                                'assets/images/product1.jpg',
+                                          ),
+                                          fit: BoxFit.fill),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: size.width * 0.02,
+                                  ),
+                                  Flexible(
+                                    child: Column(
+                                      children: [
+                                        Text(snapshot.data[index]['attributes']
+                                                ['name'] ??
+                                            'assets/images/product1.jpg'),
+                                        Padding(
+                                          padding: EdgeInsets.only(
+                                              right: size.width * 0.005),
+                                          child: Text(snapshot.data[index]
+                                                      ['attributes']
+                                                  ['nationality'] ??
+                                              'n/a \n${snapshot.data[index]['attributes']['jobs'[0]] ?? 'n/a'}'),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CharacterDetail(
+                                                details: DetailAlbum(
+                                              name: snapshot.data[index]
+                                                      ['attributes']['name'] ??
+                                                  'n/a',
+                                              nationality: snapshot.data[index]
+                                                          ['attributes']
+                                                      ['nationality'] ??
+                                                  'n/a',
+                                              born: snapshot.data[index]
+                                                      ['attributes']['born'] ??
+                                                  'n/a',
+                                              image: snapshot.data[index]
+                                                      ['attributes']['image'] ??
+                                                  'n/a',
+                                              patronus: snapshot.data[index]
+                                                          ['attributes']
+                                                      ['patronus'] ??
+                                                  'n/a',
+                                              species: snapshot.data[index]
+                                                          ['attributes']
+                                                      ['species'] ??
+                                                  'n/a',
+                                              jobs: snapshot.data[index]
+                                                          ['attributes']
+                                                      ['jobs'[0]] ??
+                                                  'n/a',
+                                            ))));
+                              },
+                            ),
+                          )
+                        ],
+                      );
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
               },
             ),
+          ),
         ),
       ),
     );
   }
 }
-// GestureDetector(
-//                   // 8
-//                   onTap: () {
-//                     // 9
-//                     Navigator.push(
-//                       context,
-//                       MaterialPageRoute(
-//                         builder: (context) {
-//                           // 10
-//                           // TODO: Replace return with return RecipeDetail()
-//                           return CharacterDetail(
-//                               details: Movie_Detail.samples[index]);
-//                         },
-//                       ),
-//                     );
-//                   },
-//                   // 11
-//                   child: buildDetailCard(Movie_Detail.samples[index]),
-//                 );

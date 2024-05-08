@@ -3,9 +3,8 @@ import 'package:harry_potter/Potter_Details/detailpage.dart';
 import '../potterthemes.dart';
 
 class CharacterDetail extends StatefulWidget {
-  final Character_Detail details;
-  const CharacterDetail(Widget buildDetailCard, {super.key,
-   required this.details,
+  final DetailAlbum details;
+  const CharacterDetail({super.key, required this.details,
   });
 
   @override
@@ -39,17 +38,16 @@ class CharacterDetailState extends State<CharacterDetail> {
                     ),
                     decoration: BoxDecoration(
                         borderRadius: const BorderRadius.only(
-                            // bottomLeft: Radius.circular(25),
                             bottomRight: Radius.circular(100)),
                         image: DecorationImage(
-                            image: AssetImage(widget.details.imageUrl),
+                            image: NetworkImage(widget.details.image),
                             fit: BoxFit.fill)),
                   ),
                   Positioned(
                     bottom: 15,
                     left: 10,
                     child: Text(
-                      widget.details.name,
+                      widget.details.species,
                       style: theme.textTheme.displayMedium,
                     ),
                   ),
@@ -69,7 +67,11 @@ class CharacterDetailState extends State<CharacterDetail> {
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                child: Text(widget.details.label),
+                child: Text('Born ${widget.details.born}'),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: size.width * 0.04),
+                child: Text(widget.details.patronus),
               )
             ],
           ),
