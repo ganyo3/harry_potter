@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter/potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
+import '../Potter_Details/bookdetail.dart';
+import '../Potter_Details/detailpage.dart';
 
 class Potions extends StatefulWidget {
   @override
@@ -12,11 +14,18 @@ class Potions extends StatefulWidget {
 }
 
 class PotionsState extends State<Potions> {
+  late Future<dynamic> futureBookData;
+  @override
+  void initState() {
+    // TODO: implement initState
+    futureBookData = fetchBookData();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
-    var theme2 = PotterTheme.light();
+    //var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -37,290 +46,122 @@ class PotionsState extends State<Potions> {
               fit: BoxFit.fill),
         ),
         child: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.02,
-                      vertical: size.height * 0.01,
-                    ),
-                    decoration: BoxDecoration(
-                        color: theme2.colorScheme.onBackground,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: size.height * 0.3,
-                            right: size.width * 0.45,
+          child: FutureBuilder(
+              future: futureBookData,
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: size.width * 0.005,
+                            vertical: size.width * 0.005,
                           ),
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/product1.jpg',
+                          child: Container(
+                            decoration: BoxDecoration(
+                             //   color: theme2.colorScheme.onBackground,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                    top: size.height * 0.33,
+                                    right: size.width * 0.45,
                                   ),
-                                  fit: BoxFit.fill)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: size.height * 0.2,
-                            left: size.height * 0.01,
-                          ),
-                          child: Text(
-                            'Potion Detail',
-                            style: theme.textTheme.displaySmall,
-                          ),
-                        ),                    
-                      ],
-                    ),
-                  ),
-
- Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.02,
-                      vertical: size.height * 0.01,
-                    ),
-                    decoration: BoxDecoration(
-                        color: theme2.colorScheme.onBackground,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: size.height * 0.3,
-                            right: size.width * 0.45,
-                          ),
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/product1.jpg',
+                                  decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(
+                                          bottomLeft: Radius.circular(10),
+                                          topLeft: Radius.circular(10)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            snapshot.data[index]['attributes']
+                                                ['cover'],
+                                          ),
+                                          fit: BoxFit.fill)),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                   children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(horizontal: size.width*0.025),
+                                        child: Text(
+                                          '${snapshot.data[index]['attributes']['title']}.\n\nBy: ${snapshot.data[index]['attributes']['author']}\nDate: ${snapshot.data[index]['attributes']['release_date']}\nPages: ${snapshot.data[index]['attributes']['pages']}',
+                                          style: theme.textTheme.titleMedium,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.12,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: size.width * 0.15),
+                                        child: SizedBox(
+                                          width: size.width * 0.35,
+                                          height: size.width * 0.1,
+                                          child: FloatingActionButton.extended(
+                                            shape: ContinuousRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            // backgroundColor:
+                                            //     theme.colorScheme.onBackground,
+                                            extendedPadding:
+                                                const EdgeInsets.all(55),
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) => BookDetail(
+                                                      details: BookData(
+                                                          cover: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['cover'],
+                                                          title: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['title'],
+                                                          author: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['author'],
+                                                          release_date: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['release_date'],
+                                                          pages: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['pages'],
+                                                          summary: snapshot.data[index]['attributes']['summary'],
+                                                          dedication: snapshot.data[index]['attributes']['summary'],
+                                                          wiki: snapshot.data[index]['attributes']['wiki'])),
+                                                ),
+                                              );
+                                            },
+                                            label: const Text(
+                                              'View More',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  fit: BoxFit.fill)),
+                                )
+                              ],
+                            ),
+                          ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: size.height * 0.2,
-                            left: size.height * 0.01,
-                          ),
-                          child: Text(
-                            'Potion Detail',
-                            style: theme.textTheme.displaySmall,
-                          ),
-                        ),                    
-                      ],
-                    ),
-                  ),
-
-                 Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.02,
-                      vertical: size.height * 0.01,
-                    ),
-                    decoration: BoxDecoration(
-                        color: theme2.colorScheme.onBackground,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: size.height * 0.3,
-                            right: size.width * 0.45,
-                          ),
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/product1.jpg',
-                                  ),
-                                  fit: BoxFit.fill)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: size.height * 0.2,
-                            left: size.height * 0.01,
-                          ),
-                          child: Text(
-                            'Potion Detail',
-                            style: theme.textTheme.displaySmall,
-                          ),
-                        ),                    
-                      ],
-                    ),
-                  ),
-
-                 Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.02,
-                      vertical: size.height * 0.01,
-                    ),
-                    decoration: BoxDecoration(
-                        color: theme2.colorScheme.onBackground,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: size.height * 0.3,
-                            right: size.width * 0.45,
-                          ),
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/product1.jpg',
-                                  ),
-                                  fit: BoxFit.fill)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: size.height * 0.2,
-                            left: size.height * 0.01,
-                          ),
-                          child: Text(
-                            'Potion Detail',
-                            style: theme.textTheme.displaySmall,
-                          ),
-                        ),                    
-                      ],
-                    ),
-                  ),
-
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.02,
-                      vertical: size.height * 0.01,
-                    ),
-                    decoration: BoxDecoration(
-                        color: theme2.colorScheme.onBackground,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: size.height * 0.3,
-                            right: size.width * 0.45,
-                          ),
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/product1.jpg',
-                                  ),
-                                  fit: BoxFit.fill)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: size.height * 0.2,
-                            left: size.height * 0.01,
-                          ),
-                          child: Text(
-                            'Potion Detail',
-                            style: theme.textTheme.displaySmall,
-                          ),
-                        ),                    
-                      ],
-                    ),
-                  ),
-
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.02,
-                      vertical: size.height * 0.01,
-                    ),
-                    decoration: BoxDecoration(
-                        color: theme2.colorScheme.onBackground,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: size.height * 0.3,
-                            right: size.width * 0.45,
-                          ),
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/product1.jpg',
-                                  ),
-                                  fit: BoxFit.fill)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: size.height * 0.2,
-                            left: size.height * 0.01,
-                          ),
-                          child: Text(
-                            'Potion Detail',
-                            style: theme.textTheme.displaySmall,
-                          ),
-                        ),                    
-                      ],
-                    ),
-                  ),
-
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: size.width * 0.02,
-                      vertical: size.height * 0.01,
-                    ),
-                    decoration: BoxDecoration(
-                        color: theme2.colorScheme.onBackground,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            top: size.height * 0.3,
-                            right: size.width * 0.45,
-                          ),
-                          decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(10),
-                                  topLeft: Radius.circular(10)),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/product1.jpg',
-                                  ),
-                                  fit: BoxFit.fill)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            bottom: size.height * 0.2,
-                            left: size.height * 0.01,
-                          ),
-                          child: Text(
-                            'Potion Detail',
-                            style: theme.textTheme.displaySmall,
-                          ),
-                        ),                    
-                      ],
-                    ),
-                  ),
-
-                ],
-              ),
-            ),
+                      );
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
           ),
         ),
-      ),
     );
   }
 }

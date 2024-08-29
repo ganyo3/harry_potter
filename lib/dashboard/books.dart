@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/Potter_Details/bookdetail.dart';
-import 'package:harry_potter/potterthemes.dart';
 import '../Potter_Details/detailpage.dart';
+import '../theme_storage/potterthemes.dart';
 
 class Books extends StatefulWidget {
   @override
@@ -14,93 +14,19 @@ class Books extends StatefulWidget {
 }
 
 class BooksState extends State<Books> {
-  Widget buildDetailCard(Book_Detail details) {
-    var size = MediaQuery.of(context).size;
-    var theme = PotterTheme.dark();
-    var theme2 = PotterTheme.light();
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: size.width * 0.005,
-          vertical: size.width * 0.005,
-        ),
-        child: Container(
-          decoration: BoxDecoration(
-              color: theme2.colorScheme.onBackground,
-              borderRadius: BorderRadius.circular(10)),
-          child: Row(
-            children: [
-              Container(
-                padding: EdgeInsets.only(
-                  top: size.height * 0.3,
-                  right: size.width * 0.45,
-                ),
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        topLeft: Radius.circular(10)),
-                    image: DecorationImage(
-                        image: AssetImage(
-                          details.imageUrl,
-                        ),
-                        fit: BoxFit.fill)),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: size.height * 0.2,
-                      left: size.height * 0.01,
-                    ),
-                    child: Text(
-                      'Movie Name',
-                      style: theme.textTheme.displaySmall,
-                    ),
-                  ),
-                  SizedBox(
-                    width: size.width * 0.25,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: size.width * 0.03),
-                    child: SizedBox(
-                      width: size.width * 0.45,
-                      height: size.width * 0.1,
-                      child: FloatingActionButton.extended(
-                        shape: ContinuousRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        backgroundColor: theme.colorScheme.onBackground,
-                        extendedPadding: const EdgeInsets.all(55),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    BookDetail(details: details)),
-                          );
-                        },
-                        label: const Text(
-                          'Movie Details',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+  late Future<dynamic> futureBookData;
+  @override
+  void initState() {
+    // TODO: implement initState
+    futureBookData = fetchBookData();
+    super.initState();
   }
 
-    @override
+  @override
   Widget build(BuildContext context) {
-    // var size = MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
-    // var theme2 = PotterTheme.light();
+    //var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
@@ -121,13 +47,125 @@ class BooksState extends State<Books> {
               fit: BoxFit.fill),
         ),
         child: SafeArea(
-          child:ListView.builder(
-              itemCount: Book_Detail.samples.length,
-              itemBuilder: (BuildContext context, index) {
-                //returning recipe cards
-                return buildDetailCard(Book_Detail.samples[index]);
-              },
-            ),
+          child: FutureBuilder(
+              future: futureBookData,
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Card(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: size.width * 0.005,
+                            // vertical: size.width * 0.005,
+                          ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                //color: theme2.colorScheme.onBackground,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                    top: size.height * 0.3,
+                                    right: size.width * 0.45,
+                                  ),
+                                  decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(
+                                          bottomLeft: Radius.circular(10),
+                                          topLeft: Radius.circular(10)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            snapshot.data[index]['attributes']
+                                                ['cover'],
+                                          ),
+                                          fit: BoxFit.fill)),
+                                ),
+                                Expanded(
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: size.width * 0.025),
+                                        child: Text(
+                                          '${snapshot.data[index]['attributes']['title']}.\n\nBy: ${snapshot.data[index]['attributes']['author']}\nDate: ${snapshot.data[index]['attributes']['release_date']}\nPages: ${snapshot.data[index]['attributes']['pages']}',
+                                          style: theme.textTheme.titleMedium,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.12,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: size.width * 0.15,
+                                          bottom: size.width * 0.01,
+                                        ),
+                                        child: SizedBox(
+                                          width: size.width * 0.35,
+                                          height: size.width * 0.1,
+                                          child: FloatingActionButton.extended(
+                                            shape: ContinuousRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(10)),
+                                            //backgroundColor:
+                                            //  theme.colorScheme.onBackground,
+                                            extendedPadding:
+                                                const EdgeInsets.all(55),
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) => BookDetail(
+                                                      details: BookData(
+                                                          cover: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['cover'],
+                                                          title: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['title'],
+                                                          author: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['author'],
+                                                          release_date: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['release_date'],
+                                                          pages: snapshot.data[index]
+                                                                  ['attributes']
+                                                              ['pages'],
+                                                          summary: snapshot.data[index]['attributes']['summary'],
+                                                          dedication: snapshot.data[index]['attributes']['summary'],
+                                                          wiki: snapshot.data[index]['attributes']['wiki'])),
+                                                ),
+                                              );
+                                            },
+                                            label: const Text(
+                                              'View More',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+
+                      ///
+                    },
+                  );
+                } else {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+              }),
         ),
       ),
     );

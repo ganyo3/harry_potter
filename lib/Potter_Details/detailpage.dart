@@ -1,8 +1,14 @@
 // ignore_for_file: non_constant_identifier_names
-
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+
+// fetching data for characters
+Future<List<dynamic>> fetchDetailNextAlbum() async {
+  var result = await http
+      .get(Uri.parse('https://api.potterdb.com/v1/characters?page[number]=5'));
+  return jsonDecode(result.body)['data'];
+}
 
 Future<List<dynamic>> fetchDetailAlbum() async {
   var result =
@@ -18,6 +24,10 @@ class DetailAlbum {
   final String image;
   final String species;
   final String jobs;
+  final String blood_status;
+  final String died;
+  // final String family_members;
+  final String wiki;
 
   const DetailAlbum({
     required this.name,
@@ -27,6 +37,10 @@ class DetailAlbum {
     required this.image,
     required this.species,
     required this.jobs,
+    required this.blood_status,
+    required this.died,
+    // required this.family_members,
+    required this.wiki,
   });
 
   factory DetailAlbum.fromJson(Map<String, dynamic> json) {
@@ -38,24 +52,33 @@ class DetailAlbum {
         'patronus': String patronus,
         'image': String image,
         'species': String species,
-        'jobs': String jobs
+        'jobs': String jobs,
+        'blood_status': String blood_status,
+        'died': String died,
+        // 'family_members': String family_members,
+        'wiki': String wiki,
       } =>
         DetailAlbum(
-            name: name,
-            nationality: nationality,
-            born: born,
-            patronus: patronus,
-            image: image,
-            species: species,
-            jobs: jobs),
+          name: name,
+          nationality: nationality,
+          born: born,
+          patronus: patronus,
+          image: image,
+          species: species,
+          jobs: jobs,
+          blood_status: blood_status,
+          died: died,
+          // family_members:family_members,
+          wiki: wiki,
+        ),
       _ => throw const FormatException('Failed to load album.'),
     };
   }
 }
+
 //Fetching data for movies
 Future<List<dynamic>> fetchMovie_Details() async {
-  var result =
-      await http.get(Uri.parse('https://api.potterdb.com/v1/movies'));
+  var result = await http.get(Uri.parse('https://api.potterdb.com/v1/movies'));
   return jsonDecode(result.body)['data'];
 }
 
@@ -89,8 +112,8 @@ class Movie_Details {
     required this.editors,
     // required this.producers,
     required this.distributors,
-  required this.wiki,
-   });
+    required this.wiki,
+  });
 
   factory Movie_Details.fromJson(Map<String, dynamic> json) {
     return switch (json) {
@@ -102,176 +125,141 @@ class Movie_Details {
         'poster': String poster,
         'summary': String summary,
         'trailer': String trailer,
-        'running_time':String running_time,
-        'screenwriters':String screenwriters,
-        'cinematographers':String cinematographers,
-        'editors':String editors,
+        'running_time': String running_time,
+        'screenwriters': String screenwriters,
+        'cinematographers': String cinematographers,
+        'editors': String editors,
         // ' producers':String producers,
-        ' distributors':String distributors,
-       'wiki':String wiki,
+        ' distributors': String distributors,
+        'wiki': String wiki,
       } =>
         Movie_Details(
-            title: title,
-            directors: directors,
-            rating: rating,
-            release_date: release_date,
-            poster: poster,
-            summary: summary,
-            trailer: trailer,
-           running_time: running_time,
+          title: title,
+          directors: directors,
+          rating: rating,
+          release_date: release_date,
+          poster: poster,
+          summary: summary,
+          trailer: trailer,
+          running_time: running_time,
           screenwriters: screenwriters,
-          cinematographers : cinematographers,
-          editors : editors,
+          cinematographers: cinematographers,
+          editors: editors,
           //  producers: producers,
-           distributors: distributors,
+          distributors: distributors,
           wiki: wiki,
-         ),
+        ),
       _ => throw const FormatException('Failed to load album.'),
     };
   }
 }
 
-// // ignore_for_file: camel_case_types
-
-class Character_Detail {
-  String name;
-  String label;
-  String imageUrl;
-  //TODO: Add servings and ingredients here
-
-  Character_Detail(
-    this.name,
-    this.label,
-    this.imageUrl,
-  );
-  //TODO: Add list of Character_Detail here
-
-  static List<Character_Detail> samples = [
-    Character_Detail(
-      'Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/potter-hd.jpg",
-    ),
-    Character_Detail(
-      'Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/goblin.jpg",
-    ),
-    Character_Detail(
-      'Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Character_Detail(
-      'Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Character_Detail(
-      'Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Character_Detail(
-      'Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-  ];
+//fetching data books
+Future<List<dynamic>> fetchBookData() async {
+  var response = await http.get(Uri.parse('https://api.potterdb.com/v1/books'));
+  return jsonDecode(response.body)['data'];
 }
 
-class Movie_Detail {
-  String name;
-  String label;
-  String imageUrl;
-  //TODO: Add servings and ingredients here
+class BookData {
+  final String cover;
+  final String title;
+  final String author;
+  final String release_date;
+  final int pages;
+  final String summary;
+  final String dedication;
+  final String wiki;
 
-  Movie_Detail(
-    this.name,
-    this.label,
-    this.imageUrl,
-  );
-  //TODO: Add list of Character_Detail here
+  const BookData({
+    required this.cover,
+    required this.title,
+    required this.author,
+    required this.release_date,
+    required this.pages,
+    required this.summary,
+    required this.dedication,
+    required this.wiki,
+  });
 
-  static List<Movie_Detail> samples = [
-    Movie_Detail(
-      'Movie Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/wallpaper-harry-potter.jpg",
-    ),
-    Movie_Detail(
-      'Movie Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/wallpaper-trio.jpg",
-    ),
-    Movie_Detail(
-      'Movie Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Movie_Detail(
-      'Movie Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Movie_Detail(
-      'Movie Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Movie_Detail(
-      'Movie Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-  ];
+  factory BookData.fromJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {
+        'cover': String cover,
+        'title': String title,
+        'author': String author,
+        'release_date': String release_date,
+        'pages': int pages,
+        'summary': String summary,
+        'dedication': String dedication,
+        'wiki': String wiki,
+      } =>
+        BookData(
+            cover: cover,
+            title: title,
+            author: author,
+            release_date: release_date,
+            pages: pages,
+            summary: summary,
+            dedication: dedication,
+            wiki: wiki),
+      _ => throw const FormatException('Failed to load album.'),
+    };
+  }
 }
 
-class Book_Detail {
-  String name;
-  String label;
-  String imageUrl;
-  //TODO: Add servings and ingredients here
+Future<List<dynamic>> fetchSpellData() async {
+  var spells = await http.get(Uri.parse('https://api.potterdb.com/v1/spells'));
+  return jsonDecode(spells.body)['data'];
+}
 
-  Book_Detail(
-    this.name,
-    this.label,
-    this.imageUrl,
-  );
-  //TODO: Add list of Character_Detail here
+class SpellData {
+  final String image;
+  final String name;
+  final String creator;
+  final String category;
+  final String light;
+  final String incantation;
+  final String effect;
+  final String hand;
+  final String wiki;
 
-  static List<Book_Detail> samples = [
-    Book_Detail(
-      'Book Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/novels.jpg",
-    ),
-    Book_Detail(
-      'Book Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/magicspell.jpg",
-    ),
-    Book_Detail(
-      'Book Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Book_Detail(
-      'Book Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Book_Detail(
-      'Book Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-    Book_Detail(
-      'Book Name',
-      "Our RESTful API provides a straightforward way to interact with the Potter DB, adhering to the JSON:API and OAS specification. In this section, we'll cover the key aspects of using the REST API, including the available endpoints and how to format your requests and responses.",
-      "assets/images/product1.jpg",
-    ),
-  ];
+  const SpellData(
+      {required this.image,
+      required this.name,
+      required this.creator,
+      required this.category,
+      required this.light,
+      required this.incantation,
+      required this.effect,
+      required this.hand,
+      required this.wiki});
+
+  factory SpellData.fromJson(Map<String, dynamic> json) {
+    return switch (json) {
+      {
+        'image': String image,
+        'name': String name,
+        'creator': String creator,
+        'category': String category,
+        'light': String light,
+        'incantation': String incantation,
+        'effect': String effect,
+        'hand': String hand,
+        'wiki': String wiki,
+      } =>
+        SpellData(
+            image: image,
+            name: name,
+            creator: creator,
+            category: category,
+            light: light,
+            incantation: incantation,
+            effect: effect,
+            hand: hand,
+            wiki: wiki),
+      _ => throw const FormatException('Failed to load album.'),
+    };
+  }
 }
 
 class Wand_Detail {

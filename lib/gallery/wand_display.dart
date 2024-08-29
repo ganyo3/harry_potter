@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
 
 class MagicWand extends StatefulWidget {
   @override
@@ -59,7 +59,7 @@ class MagicWandState extends State<MagicWand> {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
@@ -95,7 +95,7 @@ class MagicWandState extends State<MagicWand> {
                               ),
                                Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
@@ -130,7 +130,7 @@ class MagicWandState extends State<MagicWand> {
                               ),                        
                                Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
@@ -165,7 +165,7 @@ class MagicWandState extends State<MagicWand> {
                               ),                        
                                Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
@@ -200,7 +200,7 @@ class MagicWandState extends State<MagicWand> {
                               ),                        
                                Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
@@ -235,7 +235,7 @@ class MagicWandState extends State<MagicWand> {
                               ),                        
                                Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
@@ -270,7 +270,7 @@ class MagicWandState extends State<MagicWand> {
                               ),                        
                                Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
@@ -305,7 +305,7 @@ class MagicWandState extends State<MagicWand> {
                               ),                        
                                Container(
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
+                                  color: theme.colorScheme.onSurface,
                                   borderRadius: const BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),

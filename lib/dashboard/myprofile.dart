@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
 
 class MyProfile extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class MyProfileState extends State<MyProfile> {
     return Scaffold(
        resizeToAvoidBottomInset: true,
       appBar: AppBar(
-         backgroundColor: theme.colorScheme.onBackground,
+        // backgroundColor: theme.colorScheme.onBackground,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
           "User Profile",

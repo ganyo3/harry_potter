@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
 
 class House extends StatefulWidget {
   @override

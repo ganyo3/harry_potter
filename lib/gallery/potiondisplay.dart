@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
 
 class PotionDisplay extends StatefulWidget {
   @override
@@ -58,9 +58,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 horizontal: size.width * .02),
                             children: [
                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                 // color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),
@@ -94,9 +94,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 ),
                               ),
                                Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                  //color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),
@@ -129,9 +129,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 ),
                               ),                        
                                Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                  //color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),
@@ -164,9 +164,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 ),
                               ),                        
                                Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                  //color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),
@@ -199,9 +199,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 ),
                               ),                        
                                Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                  //color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),
@@ -234,9 +234,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 ),
                               ),                        
                                Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                  //color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),
@@ -269,9 +269,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 ),
                               ),                        
                                Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                  //color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),
@@ -304,9 +304,9 @@ class PotionDisplayState extends State<PotionDisplay> {
                                 ),
                               ),                        
                                Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onBackground,
-                                  borderRadius: const BorderRadius.only(
+                                decoration: const BoxDecoration(
+                                  //color: theme.colorScheme.onBackground,
+                                  borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(50),
                                               topRight: Radius.circular(50),
                                   ),

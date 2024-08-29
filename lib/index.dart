@@ -1,8 +1,9 @@
+
 import 'package:flutter/material.dart';
-import 'package:harry_potter/login_page.dart';
-import 'mydashboard.dart';
-import 'potterthemes.dart';
-// import 'potterthemes.dart';
+// import 'local_path_storage.dart';
+import '../theme_storage/potterthemes.dart';
+import 'screens/mydashboard.dart';
+import 'screens/signup_signin/login_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -99,7 +100,7 @@ class HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const DashBoard()));
+                                    builder: (context) =>const DashBoard()));
                           },
                           label: const Text("TAKE A TOUR"),
                         ),

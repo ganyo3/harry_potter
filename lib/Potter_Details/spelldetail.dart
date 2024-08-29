@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter/Potter_Details/detailpage.dart';
 import '../theme_storage/potterthemes.dart';
+import 'detailpage.dart';
 
-class CharacterDetail extends StatefulWidget {
-  final DetailAlbum details;
-  const CharacterDetail({
-    super.key,
-    required this.details,
-  });
+class SpellDetail extends StatefulWidget {
+  final SpellData details;
+  const SpellDetail({super.key, required this.details});
 
   @override
   State<StatefulWidget> createState() {
-    return CharacterDetailState();
+    return SpellDetailState();
   }
 }
 
-class CharacterDetailState extends State<CharacterDetail> {
+class SpellDetailState extends State<SpellDetail> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -25,41 +22,29 @@ class CharacterDetailState extends State<CharacterDetail> {
       appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
-        title: Text(widget.details.name),
+        title: Text(
+          widget.details.name,
+        ),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(
-                      top: size.height * 0.55,
-                    ),
-                    decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(
-                            bottomRight: Radius.circular(100)),
-                        image: DecorationImage(
-                            image: NetworkImage(widget.details.image),
-                            fit: BoxFit.fill)),
-                  ),
-                  Positioned(
-                    bottom: 15,
-                    left: 10,
-                    child: Text(
-                      'Blood Status: ${widget.details.blood_status}\t${widget.details.species}\n Patronus: ${widget.details.patronus}',
-                      style: theme2.textTheme.displaySmall,
-                    ),
-                  ),
-                ],
+              Container(               
+                padding: EdgeInsets.only(
+                  top: size.height * 0.5,
+                ),
+                decoration: BoxDecoration(                   
+                    image: DecorationImage(
+                        image: NetworkImage(widget.details.image),
+                        fit: BoxFit.cover)),
               ),
               SizedBox(
                 height: size.height * 0.02,
               ),
               Text(
-                "About Character",
+                "ABOUT SPELL",
                 style: theme2.textTheme.titleLarge,
               ),
               Divider(
@@ -70,28 +55,39 @@ class CharacterDetailState extends State<CharacterDetail> {
               Container(
                 padding: EdgeInsets.symmetric(
                   horizontal: size.width * 0.04,
-                  vertical: size.width * 0.04,
-                ),
+               ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        '${widget.details.name} was born ${widget.details.born}'),
-                    Text(
-                      "Died",
+                      "\nCategory",
                       style: theme2.textTheme.bodyLarge,
                     ),
-                    Text(widget.details.died),
+                    Text('${widget.details.light}\t${widget.details.category}'),
                     Text(
-                      "Family Members",
+                      "\nIncantation:",
                       style: theme2.textTheme.bodyLarge,
                     ),
+                    Text(widget.details.incantation),
                     Text(
-                      "Wikipedia",
+                      "\nEffect:",
                       style: theme2.textTheme.bodyLarge,
                     ),
-                    Text(widget.details.wiki),
+                    Text(widget.details.effect),
+                    Text(
+                      "\nHand Direction:",
+                      style: theme2.textTheme.bodyLarge,
+                    ),
+                    Text(widget.details.hand),
+                    Text(
+                      "\nWikipedia:",
+                      style: theme2.textTheme.bodyLarge,
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(widget.details.wiki),
+                    )
                   ],
                 ),
               ),

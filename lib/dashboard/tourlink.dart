@@ -6,7 +6,8 @@ import 'package:harry_potter/dashboard/movies.dart';
 import 'package:harry_potter/dashboard/potions.dart';
 import 'package:harry_potter/dashboard/spells.dart';
 import 'package:harry_potter/dashboard/wands.dart';
-import '../potterthemes.dart';
+// import 'package:harry_potter/local_path_storage.dart';
+import '../theme_storage/potterthemes.dart';
 import 'characters.dart';
 
 class TourLink extends StatefulWidget {
@@ -28,7 +29,7 @@ class TourLinkState extends State<TourLink> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        backgroundColor: theme.colorScheme.onBackground,
+       // backgroundColor: theme.colorScheme.onBackground,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
           "Dashboard",
@@ -67,7 +68,7 @@ class TourLinkState extends State<TourLink> {
                     children: [
                       //Movie Collections
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                        //backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(
@@ -103,7 +104,7 @@ class TourLinkState extends State<TourLink> {
                       ),
                       //Character Collections
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                        //backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(
@@ -139,7 +140,7 @@ class TourLinkState extends State<TourLink> {
                       ),
                       //Character Collections
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                      //  backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(
@@ -149,7 +150,7 @@ class TourLinkState extends State<TourLink> {
                            Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Character()),
+                                builder: (context) =>const Character()),
                           );
                         },
                         child: Column(
@@ -174,7 +175,7 @@ class TourLinkState extends State<TourLink> {
                       ),
                       //Wand Collections
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                       // backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(
@@ -210,7 +211,7 @@ class TourLinkState extends State<TourLink> {
                       ),
                       //Magic Spells
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                      //  backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(
@@ -245,7 +246,7 @@ class TourLinkState extends State<TourLink> {
                       ),
                       //Magic Potions
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                        //backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(
@@ -281,7 +282,7 @@ class TourLinkState extends State<TourLink> {
                       ),
                       //Magic Artifacts
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                        //backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(
@@ -291,7 +292,7 @@ class TourLinkState extends State<TourLink> {
                            Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const Artifacts()),
+                                builder: (context) =>const Artifacts()),
                           );
                         },
                         child: Column(
@@ -317,7 +318,7 @@ class TourLinkState extends State<TourLink> {
                       ),
                       //Hoqwarts Houses
                       FloatingActionButton.large(
-                        backgroundColor: theme.colorScheme.onBackground,
+                        //backgroundColor: theme.colorScheme.onBackground,
                         foregroundColor:
                             theme2.floatingActionButtonTheme.foregroundColor,
                         shape: const ContinuousRectangleBorder(

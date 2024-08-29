@@ -4,7 +4,7 @@ import 'package:harry_potter/gallery/potiondisplay.dart';
 import 'package:harry_potter/gallery/house.dart';
 import 'package:harry_potter/gallery/sportstool.dart';
 import 'package:harry_potter/gallery/wand_display.dart';
-import 'potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
 
 class Gallery extends StatefulWidget {
   @override
@@ -25,9 +25,9 @@ class GalleryState extends State<Gallery> {
     var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
-      // backgroundColor: theme.colorScheme.onBackground,
+      backgroundColor: theme.colorScheme.onSurface,
       appBar: AppBar(
-        backgroundColor: theme.colorScheme.onBackground,
+        backgroundColor: theme.colorScheme.onSurface,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
           "Hogwarts Gallery",
@@ -78,9 +78,9 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-             Divider(
+                Divider(
                   color: Colors.black,
-                  endIndent: size.width*0.05,
+                  endIndent: size.width * 0.05,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -118,9 +118,9 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-               Divider(
+                Divider(
                   color: Colors.black,
-                  endIndent: size.width*0.05,
+                  endIndent: size.width * 0.05,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -157,9 +157,9 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-               Divider(
+                Divider(
                   color: Colors.black,
-                  endIndent: size.width*0.05,
+                  endIndent: size.width * 0.05,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -182,8 +182,7 @@ class GalleryState extends State<Gallery> {
                           ),
                           image: DecorationImage(
                             fit: BoxFit.fill,
-                            image:
-                                AssetImage("assets/images/magicpotion.jpg"),
+                            image: AssetImage("assets/images/magicpotion.jpg"),
                           ),
                         ),
                       ),
@@ -199,14 +198,12 @@ class GalleryState extends State<Gallery> {
                 ),
                 Divider(
                   color: Colors.black,
-                  endIndent: size.width*0.05,
+                  endIndent: size.width * 0.05,
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const House()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const House()));
                   },
                   child: Row(
                     children: [
@@ -236,12 +233,11 @@ class GalleryState extends State<Gallery> {
                     ],
                   ),
                 ),
-                 Divider(
+                Divider(
                   color: Colors.black,
-                  endIndent: size.width*0.05,
+                  endIndent: size.width * 0.05,
                 ),
-                
-               ],
+             ],
             ),
           ),
         ),

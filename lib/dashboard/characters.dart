@@ -1,11 +1,16 @@
+// import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:harry_potter/Potter_Details/characterdetail.dart';
 import 'package:harry_potter/Potter_Details/detailpage.dart';
-import 'package:harry_potter/potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
+// import 'package:sizer/sizer.dart';
+// import '../local_path_storage.dart';
 
 class Character extends StatefulWidget {
-  @override
-  const Character({super.key});
+  // final DataStoragePrefs storage;
+  const Character({
+    super.key,
+  }); //required this.storage});
 
   @override
   State<StatefulWidget> createState() {
@@ -47,10 +52,8 @@ class CharacterState extends State<Character> {
         ),
         child: SafeArea(
           child: RefreshIndicator(
-            onRefresh: () async{
-              return Future<void>.delayed(
-                const Duration(seconds:3)
-              );
+            onRefresh: () async {
+              return Future<void>.delayed(const Duration(seconds: 3));
             },
             child: FutureBuilder(
               future: futureAlbum,
@@ -63,8 +66,8 @@ class CharacterState extends State<Character> {
                         children: [
                           Container(
                             margin: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.02,
-                                vertical: size.height * 0.005),
+                                horizontal: size.width * 2,
+                                vertical: size.height * 05),
                             decoration: const BoxDecoration(
                                 color: Colors.white,
                                 borderRadius:
@@ -74,8 +77,8 @@ class CharacterState extends State<Character> {
                                 children: [
                                   Container(
                                     padding: EdgeInsets.symmetric(
-                                      vertical: size.height * 0.05,
-                                      horizontal: size.width * 0.15,
+                                      vertical: size.height * 5,
+                                      horizontal: size.width * 15,
                                     ),
                                     decoration: BoxDecoration(
                                       borderRadius: const BorderRadius.only(
@@ -92,17 +95,17 @@ class CharacterState extends State<Character> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: size.width * 0.02,
+                                    width: size.width * 02,
                                   ),
                                   Flexible(
                                     child: Column(
                                       children: [
                                         Text(snapshot.data[index]['attributes']
                                                 ['name'] ??
-                                            'assets/images/product1.jpg'),
+                                            'n/a'),
                                         Padding(
                                           padding: EdgeInsets.only(
-                                              right: size.width * 0.005),
+                                              right: size.width * 005),
                                           child: Text(snapshot.data[index]
                                                       ['attributes']
                                                   ['nationality'] ??
@@ -143,6 +146,19 @@ class CharacterState extends State<Character> {
                                               jobs: snapshot.data[index]
                                                           ['attributes']
                                                       ['jobs'[0]] ??
+                                                  'n/a',
+                                              blood_status: snapshot.data[index]
+                                                          ['attributes']
+                                                      ['blood_status'] ??
+                                                  'n/a',
+                                              died: snapshot.data[index]
+                                                      ['attributes']['died'] ??
+                                                  'n/a',
+                                              // family_members:snapshot.data[index]
+                                              //         ['attributes']['family_members'] ??
+                                              //     'n/a',
+                                              wiki: snapshot.data[index]
+                                                      ['attributes']['wiki'] ??
                                                   'n/a',
                                             ))));
                               },

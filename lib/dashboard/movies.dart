@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter/potterthemes.dart';
+import '../theme_storage/potterthemes.dart';
 import '../Potter_Details/detailpage.dart';
 import '../Potter_Details/moviedetail.dart';
 
@@ -25,7 +25,7 @@ class MoviesState extends State<Movies> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
-    var theme2 = PotterTheme.light();
+    //var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
@@ -57,19 +57,19 @@ class MoviesState extends State<Movies> {
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: size.width * 0.005,
-                            vertical: size.width * 0.005,
+                            // vertical: size.width * 0.005,
                           ),
                           child: Container(
                             decoration: BoxDecoration(
-                                color: theme2.colorScheme.onBackground,
+                               // color: theme2.colorScheme.onBackground,
                                 borderRadius: BorderRadius.circular(10)),
                             child: Row(
                               children: [
                                 Container(
                                   padding: EdgeInsets.only(
                                     top: size.height * 0.3,
-                                    bottom: size.height * 0.002,
-                                    right: size.width * 0.5,
+                                    // bottom: size.height * 0.00,
+                                    right: size.width * 0.45,
                                   ),
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
@@ -120,40 +120,113 @@ class MoviesState extends State<Movies> {
                                             shape: ContinuousRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(10)),
-                                            backgroundColor:
-                                                theme.colorScheme.onBackground,
+                                            // backgroundColor:
+                                            //     theme.colorScheme.onBackground,
                                             extendedPadding:
                                                 const EdgeInsets.all(55),
                                             onPressed: () {
                                               Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                      builder: (context) => MovieDetail(
-                                                          details: Movie_Details(
-                                                              title: snapshot.data[index]['attributes']['title'] ??
-                                                                  'n/a',
-                                                              directors:
-                                                                  snapshot.data[index]['attributes']['directors'[0]] ??
-                                                                      'n/a',
-                                                              rating: snapshot.data[index]['attributes']['rating'] ??
-                                                                  'n/a',
-                                                              release_date:
-                                                                  snapshot.data[index]['attributes']['release_date'] ??
-                                                                      'n/a',
-                                                              poster: snapshot.data[index]
-                                                                          ['attributes']
-                                                                      ['poster'] ??
-                                                                  'n/a',
-                                                              summary: snapshot.data[index]['attributes']['summary'] ?? 'n/a',
-                                                              trailer: snapshot.data[index]['attributes']['trailer'] ?? 'n/a',
-                                                              running_time: snapshot.data[index]['attributes']['running_time']?? 'n/a',
-                                                              screenwriters: snapshot.data[index]['attributes']['screenwriters'[0]]?? 'n/a',
-                                                              cinematographers: snapshot.data[index]['attributes']['cinematographers'[0]]?? 'n/a',
-                                                              editors: snapshot.data[index]['attributes']['editors'[0]]?? 'n/a',
-                                                              // producers: snapshot.data[index]['attributes']['producers'[0][1][2]]?? 'n/a',
-                                                              distributors: snapshot.data[index]['attributes']['distributors'[0]]?? 'n/a',
-                                                              wiki: snapshot.data[index]['attributes']['wiki']?? 'n/a',
-                                                             ))));
+                                                      builder: (context) =>
+                                                          MovieDetail(
+                                                              details:
+                                                                  Movie_Details(
+                                                            title: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    ['title'] ??
+                                                                'n/a',
+                                                            directors: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'directors'[
+                                                                        0]] ??
+                                                                'n/a',
+                                                            rating: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'rating'] ??
+                                                                'n/a',
+                                                            release_date: snapshot
+                                                                            .data[index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'release_date'] ??
+                                                                'n/a',
+                                                            poster: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'poster'] ??
+                                                                'n/a',
+                                                            summary: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'summary'] ??
+                                                                'n/a',
+                                                            trailer: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'trailer'] ??
+                                                                'n/a',
+                                                            running_time: snapshot
+                                                                            .data[index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'running_time'] ??
+                                                                'n/a',
+                                                            screenwriters: snapshot
+                                                                            .data[index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'screenwriters'[
+                                                                        0]] ??
+                                                                'n/a',
+                                                            cinematographers:
+                                                                snapshot.data[index]
+                                                                            [
+                                                                            'attributes']
+                                                                        [
+                                                                        'cinematographers'[
+                                                                            0]] ??
+                                                                    'n/a',
+                                                            editors: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    ['editors'[
+                                                                        0]] ??
+                                                                'n/a',
+                                                            // producers: snapshot.data[index]['attributes']['producers'[0][1][2]]?? 'n/a',
+                                                            distributors: snapshot
+                                                                            .data[index]
+                                                                        [
+                                                                        'attributes']
+                                                                    [
+                                                                    'distributors'[
+                                                                        0]] ??
+                                                                'n/a',
+                                                            wiki: snapshot.data[
+                                                                            index]
+                                                                        [
+                                                                        'attributes']
+                                                                    ['wiki'] ??
+                                                                'n/a',
+                                                          ))));
                                             },
                                             label: const Text(
                                               'Movie Details',
@@ -172,73 +245,6 @@ class MoviesState extends State<Movies> {
                           ),
                         ),
                       );
-
-                      // Column(
-                      //   children: [
-                      //     Container(
-                      //       margin: EdgeInsets.symmetric(
-                      //           horizontal: size.width * 0.02,
-                      //           vertical: size.height * 0.005),
-                      //       decoration: const BoxDecoration(
-                      //           color: Colors.white,
-                      //           borderRadius:
-                      //               BorderRadius.all(Radius.circular(10))),
-                      //       child: GestureDetector(
-                      //         child: Row(
-                      //           children: [
-                      //             Container(
-                      //               padding: EdgeInsets.symmetric(
-                      //                 vertical: size.height * 0.05,
-                      //                 horizontal: size.width * 0.15,
-                      //               ),
-                      //               decoration: BoxDecoration(
-                      //                 borderRadius: const BorderRadius.only(
-                      //                     topLeft: Radius.circular(10),
-                      //                     bottomLeft: Radius.circular(10)),
-                      //                 image: DecorationImage(
-                      //                     alignment: Alignment.centerLeft,
-                      //                     image: NetworkImage(
-                      //                       snapshot.data[index]['attributes']['poster'] ??'n/a',
-                      //                     ),
-                      //                     fit: BoxFit.fill),
-                      //               ),
-                      //             ),
-                      //             SizedBox(
-                      //               width: size.width * 0.02,
-                      //             ),
-                      //             Flexible(
-                      //               child: Column(
-                      //                 children: [
-                      //                   Text(snapshot.data[index]['attributes']['title'] ?? 'n/a'),
-                      //                   Padding(
-                      //                     padding: EdgeInsets.only(
-                      //                         right: size.width * 0.005),
-                      //                     child: Text(snapshot.data[index]['attributes']['directors'[0]] ??
-                      //                     'n/a \n${snapshot.data[index]['attributes']['rating'] ?? 'n/a'}'),
-                      //                   ),
-                      //                 ],
-                      //               ),
-                      //             ),
-                      //           ],
-                      //         ),
-                      //         onTap: () {
-                      //           Navigator.push(
-                      //               context,
-                      //               MaterialPageRoute(
-                      //                   builder: (context) => MovieDetail(
-                      //                       details: Movie_Details(
-                      //                           title: snapshot.data[index]['attributes']['title'] ??'n/a',
-                      //                           directors: snapshot.data[index]['attributes']['directors'[0]]?? 'n/a',
-                      //                           rating: snapshot.data[index]['attributes']['rating'] ??'n/a',
-                      //                           release_date: snapshot.data[index]['attributes']['release_date'] ??'n/a',
-                      //                           poster: snapshot.data[index]['attributes']['poster'] ?? 'n/a',
-                      //                           summary: snapshot.data[index]['attributes']['summary'] ?? 'n/a',
-                      //                           trailer: snapshot.data[index]['attributes']['trailer'] ?? 'n/a'))));
-                      //         },
-                      //       ),
-                      //     )
-                      //   ],
-                      // );
                     },
                   );
                 } else {

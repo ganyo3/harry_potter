@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/Potter_Details/wand_detail.dart';
-import 'package:harry_potter/potterthemes.dart';
-
+import '../theme_storage/potterthemes.dart';
 import '../Potter_Details/detailpage.dart';
 
 class Wands extends StatefulWidget {
@@ -18,7 +17,7 @@ class WandsState extends State<Wands> {
    Widget buildDetailCard(Wand_Detail details) {
     var size = MediaQuery.of(context).size;
     var theme = PotterTheme.dark();
-    var theme2 = PotterTheme.light();
+    //var theme2 = PotterTheme.light();
     return Card(
       child: Padding(
         padding: EdgeInsets.symmetric(
@@ -27,7 +26,7 @@ class WandsState extends State<Wands> {
         ),
         child: Container(
           decoration: BoxDecoration(
-              color: theme2.colorScheme.onBackground,
+             // color: theme2.colorScheme.onBackground,
               borderRadius: BorderRadius.circular(10)),
           child: Row(
             children: [
@@ -69,7 +68,7 @@ class WandsState extends State<Wands> {
                       child: FloatingActionButton.extended(
                         shape: ContinuousRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        backgroundColor: theme.colorScheme.onBackground,
+                      //  backgroundColor: theme.colorScheme.onBackground,
                         extendedPadding: const EdgeInsets.all(55),
                         onPressed: () {
                           Navigator.push(
