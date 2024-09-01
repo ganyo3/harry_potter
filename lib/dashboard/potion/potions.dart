@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../theme_storage/potterthemes.dart';
-import '../Potter_Details/bookdetail.dart';
-import '../Potter_Details/detailpage.dart';
+
+import '../../Potter_Details/bookdetail.dart';
+import '../../Potter_Details/detailpage.dart';
+import '../../theme_storage/potterthemes.dart';
 
 class Potions extends StatefulWidget {
   @override

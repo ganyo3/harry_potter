@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../theme_storage/potterthemes.dart';
+
+import '../../Potter_Details/characterdetail.dart';
+import '../../Potter_Details/detailpage.dart';
+import '../../theme_storage/potterthemes.dart';
 // import 'package:sizer/sizer.dart';
-import '../Potter_Details/characterdetail.dart';
-import '../Potter_Details/detailpage.dart';
 // import '../local_path_storage.dart';
 
 class Artifacts extends StatefulWidget {

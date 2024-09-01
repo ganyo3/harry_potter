@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:harry_potter/Potter_Details/detailpage.dart';
 import 'package:harry_potter/Potter_Details/spelldetail.dart';
-import '../theme_storage/potterthemes.dart';
+
+import '../../theme_storage/potterthemes.dart';
 
 class Spells extends StatefulWidget {
   @override

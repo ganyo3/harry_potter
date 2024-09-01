@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter/dashboard/books.dart';
-import 'package:harry_potter/dashboard/halls.dart';
-import 'package:harry_potter/dashboard/magic_artifacts.dart';
-import 'package:harry_potter/dashboard/movies.dart';
-import 'package:harry_potter/dashboard/potions.dart';
-import 'package:harry_potter/dashboard/spells.dart';
-import 'package:harry_potter/dashboard/wands.dart';
 // import 'package:harry_potter/local_path_storage.dart';
 import '../theme_storage/potterthemes.dart';
-import 'characters.dart';
+import 'artifacts/magic_artifacts.dart';
+import 'books/books.dart';
+import 'characters/characters.dart';
+import 'house/halls.dart';
+import 'movies/movies.dart';
+import 'potion/potions.dart';
+import 'spells/spells.dart';
+import 'wand/wands.dart';
 
 class TourLink extends StatefulWidget {
   @override

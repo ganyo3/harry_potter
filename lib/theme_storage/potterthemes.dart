@@ -38,7 +38,7 @@ class PotterTheme {
       color: Colors.white,
     ),
     bodyMedium:TextStyle(
-      fontSize: 25.0,
+      fontSize: 15.0,
       fontWeight: FontWeight.bold,
       color: Color.fromRGBO(128, 0, 0, 0.925),
     ),
@@ -85,6 +85,8 @@ class PotterTheme {
       ),
       textTheme: lightTextTheme,
     );
+
+    
   }
 
   // 4

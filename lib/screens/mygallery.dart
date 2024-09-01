@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:harry_potter/gallery/character_page.dart';
-import 'package:harry_potter/gallery/potiondisplay.dart';
-import 'package:harry_potter/gallery/house.dart';
-import 'package:harry_potter/gallery/sportstool.dart';
-import 'package:harry_potter/gallery/wand_display.dart';
+import '../gallery/character_gallery/character_page.dart';
+import '../gallery/house_gallery/house.dart';
+import '../gallery/potion_gallery/potiondisplay.dart';
+import '../gallery/sportstool.dart';
+import '../gallery/wand_gallery/wand_display.dart';
 import '../theme_storage/potterthemes.dart';
 
 class Gallery extends StatefulWidget {
@@ -24,220 +24,182 @@ class GalleryState extends State<Gallery> {
     var theme = PotterTheme.dark();
     var theme2 = PotterTheme.light();
     // TODO: implement build
-    return Scaffold(
-      backgroundColor: theme.colorScheme.onSurface,
-      appBar: AppBar(
-        backgroundColor: theme.colorScheme.onSurface,
-        foregroundColor: theme.appBarTheme.foregroundColor,
-        title: Text(
-          "Hogwarts Gallery",
-          style: theme2.textTheme.displayLarge,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        resizeToAvoidBottomInset: true,
+        appBar: AppBar(
+          backgroundColor: theme.colorScheme.onSurface,
+          foregroundColor: theme.appBarTheme.foregroundColor,
+          title: Text(
+            "Hogwarts Gallery",
+            style: theme2.textTheme.displayLarge,
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Center(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: size.height * 0.005,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CharacterPage()));
-                  },
-                  child: Row(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Center(
+              child: Column(
+                children: [
+                  Stack(
                     children: [
                       Container(
+                        margin: EdgeInsets.symmetric(
+                            vertical: size.height * 0.02,
+                            horizontal: size.width * 0.05),
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.06,
-                          horizontal: size.width * 0.39,
+                          vertical: size.height * 0.08,
                         ),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                            bottomRight: Radius.circular(50),
-                          ),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage("assets/images/goblin.jpg"),
-                          ),
-                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/houses_flag.jpg"),
+                                fit: BoxFit.fill)),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: size.width * 0.02),
-                        child: Text(
-                          "Character\nCollection",
-                          style: theme2.textTheme.bodyLarge,
-                        ),
+                      Positioned(
+                        top: size.height * 0.16,
+                        left: size.width * 0.25,
+                        width: size.width * 0.45,
+                        height: size.height * 0.04,
+                        child: FloatingActionButton.extended(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const House()));
+                            },
+                            label: const Text("House")),
                       )
                     ],
                   ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  endIndent: size.width * 0.05,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const MagicWand()));
-                  },
-                  child: Row(
+                  Stack(
                     children: [
                       Container(
+                        margin: EdgeInsets.symmetric(
+                            vertical: size.height * 0.02,
+                            horizontal: size.width * 0.05),
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.06,
-                          horizontal: size.width * 0.36,
+                          vertical: size.height * 0.08,
                         ),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                            bottomRight: Radius.circular(50),
-                          ),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage(
-                                "assets/images/wand-collection-.jpeg"),
-                          ),
-                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: const DecorationImage(
+                                image: AssetImage(
+                                    "assets/images/wallpaper-harry-potter.jpg"),
+                                fit: BoxFit.fill)),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: size.width * 0.02),
-                        child: Text(
-                          "Wand\nCollection",
-                          style: theme2.textTheme.bodyLarge,
-                        ),
+                      Positioned(
+                        top: size.height * 0.16,
+                        left: size.width * 0.25,
+                        width: size.width * 0.45,
+                        height: size.height * 0.04,
+                        child: FloatingActionButton.extended(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const CharacterPage()));
+                            }, label: const Text("Characters")),
                       )
                     ],
                   ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  endIndent: size.width * 0.05,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SportTools()));
-                  },
-                  child: Row(
+                  Stack(
                     children: [
                       Container(
+                        margin: EdgeInsets.symmetric(
+                            vertical: size.height * 0.02,
+                            horizontal: size.width * 0.05),
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.06,
-                          horizontal: size.width * 0.39,
+                          vertical: size.height * 0.08,
                         ),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                            bottomRight: Radius.circular(50),
-                          ),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage("assets/images/artifacts.jpg"),
-                          ),
-                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: const DecorationImage(
+                                image: AssetImage(
+                                    "assets/images/wand-collection-.jpeg"),
+                                fit: BoxFit.fill)),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: size.width * 0.02),
-                        child: Text(
-                          "Artifacts\nCollection",
-                          style: theme2.textTheme.bodyLarge,
-                        ),
+                      Positioned(
+                        top: size.height * 0.16,
+                        left: size.width * 0.25,
+                        width: size.width * 0.45,
+                        height: size.height * 0.04,
+                        child: FloatingActionButton.extended(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const MagicWand()));
+                            }, label: const Text("Wands")),
                       )
                     ],
                   ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  endIndent: size.width * 0.05,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PotionDisplay()));
-                  },
-                  child: Row(
+                  Stack(
                     children: [
                       Container(
+                        margin: EdgeInsets.symmetric(
+                            vertical: size.height * 0.02,
+                            horizontal: size.width * 0.05),
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.06,
-                          horizontal: size.width * 0.36,
+                          vertical: size.height * 0.08,
                         ),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                            bottomRight: Radius.circular(50),
-                          ),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage("assets/images/magicpotion.jpg"),
-                          ),
-                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/artifacts.jpg"),
+                                fit: BoxFit.fill)),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: size.width * 0.02),
-                        child: Text(
-                          "Potion\nCollection",
-                          style: theme2.textTheme.bodyLarge,
-                        ),
+                      Positioned(
+                        top: size.height * 0.16,
+                        left: size.width * 0.25,
+                        width: size.width * 0.45,
+                        height: size.height * 0.04,
+                        child: FloatingActionButton.extended(
+                            onPressed: () {
+                               Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const SportTools()));
+                            }, label: const Text("Artifacts")),
                       )
                     ],
                   ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  endIndent: size.width * 0.05,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const House()));
-                  },
-                  child: Row(
+                  Stack(
                     children: [
                       Container(
+                        margin: EdgeInsets.symmetric(
+                            vertical: size.height * 0.02,
+                            horizontal: size.width * 0.05),
                         padding: EdgeInsets.symmetric(
-                          vertical: size.height * 0.06,
-                          horizontal: size.width * 0.39,
+                          vertical: size.height * 0.08,
                         ),
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                            bottomRight: Radius.circular(50),
-                          ),
-                          image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage("assets/images/houselogo.jpg"),
-                          ),
-                        ),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: const DecorationImage(
+                                image:
+                                    AssetImage("assets/images/magicpotion.jpg"),
+                                fit: BoxFit.fill)),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: size.width * 0.02),
-                        child: Text(
-                          "Hogwarts\nHalls",
-                          style: theme2.textTheme.bodyLarge,
-                        ),
+                      Positioned(
+                        top: size.height * 0.16,
+                        left: size.width * 0.25,
+                        width: size.width * 0.45,
+                        height: size.height * 0.04,
+                        child: FloatingActionButton.extended(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const PotionDisplay()));
+                            }, label: const Text("Potions")),
                       )
                     ],
                   ),
-                ),
-                Divider(
-                  color: Colors.black,
-                  endIndent: size.width * 0.05,
-                ),
-             ],
+                ],
+              ),
             ),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:harry_potter/screens/mydashboard.dart';
 import '../../theme_storage/potterthemes.dart';
 import 'signup_page.dart';
 
@@ -121,7 +122,9 @@ class LogInState extends State<LogIn> {
                           EdgeInsets.symmetric(horizontal: size.width * 0.5),
                       shape: LinearBorder.none,
                       onPressed: () {
-                        Navigator.pop(context);
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=> const DashBoard())
+                        );
                       },
                       label: const Text("Sign In"),
                     ),
