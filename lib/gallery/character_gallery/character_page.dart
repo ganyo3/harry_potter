@@ -69,9 +69,10 @@ class CharacterPageState extends State<CharacterPage> {
                         TextButton(
                             onPressed: () {
                               Navigator.push(
-                                context,
-                              MaterialPageRoute(builder: (context)=>const AllCharacters())
-                              );
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const AllCharacters()));
                             },
                             child: const Text("See All Characters"))
                       ],
@@ -88,6 +89,7 @@ class CharacterPageState extends State<CharacterPage> {
 
   carousel() {
     var size = MediaQuery.of(context).size;
+    // final String images = NetworkImage(snapshot.data[index]['attributes']['image']);
     final List<String> images = [
       'assets/images/potter.jpg',
       'assets/images/voldemort.jpg',
