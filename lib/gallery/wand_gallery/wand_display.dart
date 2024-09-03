@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
+import '../../Potter_Details/detailpage.dart';
+import '../../screens/mygallery.dart';
 import '../../theme_storage/potterthemes.dart';
+import '../potion_gallery/potiondisplay.dart';
 
 class MagicWand extends StatefulWidget {
   @override
@@ -13,339 +17,158 @@ class MagicWand extends StatefulWidget {
 }
 
 class MagicWandState extends State<MagicWand> {
+  late Future<dynamic> futureAlbum;
+  @override
+  void initState() {
+    futureAlbum = fetchDetailAlbum();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var theme = PotterTheme.dark();
     // var theme2 = PotterTheme.light();
     // TODO: implement build
-   return Scaffold(
-      appBar: AppBar(
-        backgroundColor: theme.appBarTheme.backgroundColor,
-        foregroundColor: theme.appBarTheme.foregroundColor,
-        title: Text(
-          "Magic Wand Collection",
-          style: theme.textTheme.titleLarge,
-        ),
-        centerTitle: true,
-      ),
-      body:DecoratedBox(
-        decoration: const BoxDecoration(
-          // Image set to background of the body
-          image: DecorationImage(
-              image: AssetImage("assets/images/wandlogo.jpg"),
-              fit: BoxFit.fill),
-        ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-              child: Center(
-              
-                child:  Column(
-                  children: [
-                     //Regular students
-               SizedBox(
-                        height: size.height*01.4,
-                        child: GridView(
-                            physics: const NeverScrollableScrollPhysics(),
-                            gridDelegate:
-                                 SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 7,
-                              mainAxisSpacing: size.height*0.02,
-                              childAspectRatio: .66,
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: size.height * .02,
-                                horizontal: size.width * .02),
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )
-                                            ),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),                        
-                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),                        
-                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),                        
-                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),                        
-                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),                        
-                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),                        
-                               Container(
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.onSurface,
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                  ),
-                                ),
-                                child: Column(
-                                  children: [
-                                    Expanded(
-                                      flex: 8,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(50),
-                                              topRight: Radius.circular(50),
-                                            ),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/product1.jpg'),
-                                              fit: BoxFit.fill,
-                                            )),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Text(
-                                        'Name',
-                                        style: theme.textTheme.displaySmall,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),                        
-                            ]),
-                      ),
-                  ],
-                )
-              ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.teal,
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const Gallery()),
+                );
+              },
+              child: const Icon(Icons.arrow_back),
             ),
+            title: const Text('Gallery'),
+          ),
+          body: FutureBuilder(
+              future: futureAlbum,
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.hasData) {
+                  return GridView.builder(
+                    padding: EdgeInsets.symmetric(
+                      vertical: size.height * 0.008,
+                      horizontal: size.width * 0.02,
+                    ),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 4.0,
+                      mainAxisSpacing: 4.0,
+                    ),
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return snapshot.data[index]['attributes']
+                                              ['image'] !=
+                                          null &&
+                                      snapshot
+                                          .data[index]['attributes']['image']
+                                          .isNotEmpty
+                                  ? FullScreenGallery(
+                                      images: snapshot.data[index]['attributes']
+                                          ['image'],
+                                      initialIndex: index,
+                                    )
+                                  : Image.asset("assets/images/product1.jpg");
+                            }),
+                          );
+                        },
+                        child: Builder(builder: (context) {
+                          return snapshot.data[index]['attributes']['image'] !=
+                                      null &&
+                                  snapshot.data[index]['attributes']['image']
+                                      .isNotEmpty
+                              ? Image.network(
+                                  snapshot.data[index]['attributes']['image'],
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset("assets/images/product1.jpg");
+                          // return Image.network(
+                          //   snapshot.data[index]['attributes']['image']??"",
+                          //   fit: BoxFit.cover,
+                          // );
+                        }),
+                      );
+                    },
+                  );
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              })),
+    );
+  }}
+  
+//FullScreen Gallery
+  class FullScreenGallery extends StatefulWidget {
+  final String images;
+  final int initialIndex;
+
+  const FullScreenGallery(
+      {super.key, required this.images, this.initialIndex = 0});
+
+  @override
+  _FullScreenGalleryState createState() => _FullScreenGalleryState();
+}
+
+class _FullScreenGalleryState extends State<FullScreenGallery> {
+  late PageController _pageController;
+  late Future<dynamic> futureAlbum;
+  @override
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: widget.initialIndex);
+    futureAlbum = fetchDetailAlbum();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.teal,
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PotionDisplay()),
+              );
+            },
+            child: const Icon(Icons.arrow_back),
+          ),
+          title: const Text('Gallery'),
         ),
+        body: FutureBuilder(
+            future: futureAlbum,
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              return PhotoViewGallery.builder(
+                pageController: _pageController,
+                itemCount: snapshot.data.length,
+                builder: (BuildContext context, int index) {
+                  return PhotoViewGalleryPageOptions(
+                    imageProvider: NetworkImage(
+                        snapshot.data[index]['attributes']['image']!=null&&
+                                  snapshot.data[index]['attributes']['image']
+                                      .isNotEmpty
+                              ?snapshot.data[index]['attributes']['image']:""),
+                    minScale: PhotoViewComputedScale.contained,
+                    maxScale: PhotoViewComputedScale.covered * 2,
+                  );
+                },
+                backgroundDecoration: const BoxDecoration(color: Colors.black),
+              );
+            }),
       ),
     );
   }

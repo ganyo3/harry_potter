@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../gallery/character_gallery/character_page.dart';
+import 'package:harry_potter/gallery/character_gallery/character_gallery.dart';
 import '../gallery/house_gallery/house.dart';
 import '../gallery/potion_gallery/potiondisplay.dart';
 import '../gallery/sportstool.dart';
@@ -100,7 +100,7 @@ class GalleryState extends State<Gallery> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const CharacterPage()));
+                                      builder: (context) => const CharacterGallery()));
                             }, label: const Text("Characters")),
                       )
                     ],
