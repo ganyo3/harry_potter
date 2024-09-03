@@ -6,8 +6,89 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
 
+class GalleryPage extends StatelessWidget {
+  final List<String> imageUrls = [
+    'https://via.placeholder.com/600x400',  // Example image URLs
+    'https://via.placeholder.com/600x401',
+    'https://via.placeholder.com/600x402',
+  ];
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.teal,
+        title: Text('Gallery'),
+      ),
+      body: GridView.builder(
+        padding: EdgeInsets.all(8.0),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 4.0,
+          mainAxisSpacing: 4.0,
+        ),
+        itemCount: imageUrls.length,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullScreenGallery(
+                    images: imageUrls,
+                    initialIndex: index,
+                  ),
+                ),
+              );
+            },
+            child: Image.network(
+              imageUrls[index],
+              fit: BoxFit.cover,
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
 
+class FullScreenGallery extends StatefulWidget {
+  final List<String> images;
+  final int initialIndex;
+
+  FullScreenGallery({required this.images, this.initialIndex = 0});
+
+  @override
+  _FullScreenGalleryState createState() => _FullScreenGalleryState();
+}
+
+class _FullScreenGalleryState extends State<FullScreenGallery> {
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: widget.initialIndex);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: PhotoViewGallery.builder(
+        pageController: _pageController,
+        itemCount: widget.images.length,
+        builder: (context, index) {
+          return PhotoViewGalleryPageOptions(
+            imageProvider: NetworkImage(widget.images[index]),
+            minScale: PhotoViewComputedScale.contained,
+            maxScale: PhotoViewComputedScale.covered * 2,
+          );
+        },
+        backgroundDecoration: BoxDecoration(color: Colors.black),
+      ),
+    );
+  }
+}
 
 
 // class AllCharacters extends StatefulWidget {

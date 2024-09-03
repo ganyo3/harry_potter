@@ -72,7 +72,7 @@ class CharacterPageState extends State<CharacterPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const AllCharacters()));
+                                          GalleryPage()));
                             },
                             child: const Text("See All Characters"))
                       ],
