@@ -30,7 +30,7 @@ class BooksState extends State<Books> {
     //var theme2 = PotterTheme.light();
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
+     appBar: AppBar(
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
@@ -69,8 +69,8 @@ class BooksState extends State<Books> {
                               children: [
                                 Container(
                                   padding: EdgeInsets.only(
-                                    top: size.height * 0.3,
-                                    right: size.width * 0.45,
+                                    top: size.height * 0.2,
+                                    right: size.width * 0.5,
                                   ),
                                   decoration: BoxDecoration(
                                       borderRadius: const BorderRadius.only(
@@ -88,63 +88,57 @@ class BooksState extends State<Books> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsets.symmetric(
-                                            horizontal: size.width * 0.025),
+                                            horizontal: size.width * 0.04),
                                         child: Text(
-                                          '${snapshot.data[index]['attributes']['title']}.\n\nBy: ${snapshot.data[index]['attributes']['author']}\nDate: ${snapshot.data[index]['attributes']['release_date']}\nPages: ${snapshot.data[index]['attributes']['pages']}',
+                                          '${snapshot.data[index]['attributes']['title']}.\nBy: ${snapshot.data[index]['attributes']['author']}\nDate: ${snapshot.data[index]['attributes']['release_date']}\nPages: ${snapshot.data[index]['attributes']['pages']}',
                                           style: theme.textTheme.titleMedium,
                                         ),
                                       ),
+                                      // SizedBox(
+                                      //   height: size.height * 0.02,
+                                      // ),
                                       SizedBox(
-                                        height: size.height * 0.12,
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                          left: size.width * 0.15,
-                                          bottom: size.width * 0.01,
-                                        ),
-                                        child: SizedBox(
-                                          width: size.width * 0.35,
-                                          height: size.width * 0.1,
-                                          child: FloatingActionButton.extended(
-                                            shape: ContinuousRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
-                                            //backgroundColor:
-                                            //  theme.colorScheme.onBackground,
-                                            extendedPadding:
-                                                const EdgeInsets.all(55),
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) => BookDetail(
-                                                      details: BookData(
-                                                          cover: snapshot.data[index]
-                                                                  ['attributes']
-                                                              ['cover'],
-                                                          title: snapshot.data[index]
-                                                                  ['attributes']
-                                                              ['title'],
-                                                          author: snapshot.data[index]
-                                                                  ['attributes']
-                                                              ['author'],
-                                                          release_date: snapshot.data[index]
-                                                                  ['attributes']
-                                                              ['release_date'],
-                                                          pages: snapshot.data[index]
-                                                                  ['attributes']
-                                                              ['pages'],
-                                                          summary: snapshot.data[index]['attributes']['summary'],
-                                                          dedication: snapshot.data[index]['attributes']['summary'],
-                                                          wiki: snapshot.data[index]['attributes']['wiki'])),
-                                                ),
-                                              );
-                                            },
-                                            label: const Text(
-                                              'View More',
-                                              style: TextStyle(
-                                                color: Colors.white,
+                                        width: size.width * 0.5,
+                                        height: size.width * 0.1,
+                                        child: FloatingActionButton.extended(
+                                          shape: ContinuousRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          //backgroundColor:
+                                          //  theme.colorScheme.onBackground,
+                                          extendedPadding:
+                                              const EdgeInsets.all(55),
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => BookDetail(
+                                                    details: BookData(
+                                                        cover: snapshot.data[index]
+                                                                ['attributes']
+                                                            ['cover'],
+                                                        title: snapshot.data[index]
+                                                                ['attributes']
+                                                            ['title'],
+                                                        author: snapshot.data[index]
+                                                                ['attributes']
+                                                            ['author'],
+                                                        release_date: snapshot.data[index]
+                                                                ['attributes']
+                                                            ['release_date'],
+                                                        pages: snapshot.data[index]
+                                                                ['attributes']
+                                                            ['pages'],
+                                                        summary: snapshot.data[index]['attributes']['summary'],
+                                                        dedication: snapshot.data[index]['attributes']['summary'],
+                                                        wiki: snapshot.data[index]['attributes']['wiki'])),
                                               ),
+                                            );
+                                          },
+                                          label: const Text(
+                                            'View More',
+                                            style: TextStyle(
+                                              color: Colors.white,
                                             ),
                                           ),
                                         ),

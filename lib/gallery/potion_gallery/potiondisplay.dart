@@ -3,7 +3,6 @@ import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 import '../../Potter_Details/detailpage.dart';
 import '../../screens/mygallery.dart';
-import '../../theme_storage/potterthemes.dart';
 
 class PotionDisplay extends StatefulWidget {
   @override
@@ -37,8 +36,7 @@ class PotionDisplayState extends State<PotionDisplay> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                      builder: (context) => const Gallery()),
+                  MaterialPageRoute(builder: (context) => const Gallery()),
                 );
               },
               child: const Icon(Icons.arrow_back),
@@ -105,10 +103,11 @@ class PotionDisplayState extends State<PotionDisplay> {
                 }
               })),
     );
-  }}
-  
+  }
+}
+
 //FullScreen Gallery
-  class FullScreenGallery extends StatefulWidget {
+class FullScreenGallery extends StatefulWidget {
   final String images;
   final int initialIndex;
 
@@ -157,10 +156,11 @@ class _FullScreenGalleryState extends State<FullScreenGallery> {
                 builder: (BuildContext context, int index) {
                   return PhotoViewGalleryPageOptions(
                     imageProvider: NetworkImage(
-                        snapshot.data[index]['attributes']['image']!=null&&
-                                  snapshot.data[index]['attributes']['image']
-                                      .isNotEmpty
-                              ?snapshot.data[index]['attributes']['image']:""),
+                        snapshot.data[index]['attributes']['image'] != null &&
+                                snapshot.data[index]['attributes']['image']
+                                    .isNotEmpty
+                            ? snapshot.data[index]['attributes']['image']
+                            : ""),
                     minScale: PhotoViewComputedScale.contained,
                     maxScale: PhotoViewComputedScale.covered * 2,
                   );

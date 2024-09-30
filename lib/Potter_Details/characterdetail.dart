@@ -23,7 +23,7 @@ class CharacterDetailState extends State<CharacterDetail> {
     var theme2 = PotterTheme.light();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: theme.appBarTheme.backgroundColor,
+        backgroundColor: Colors.white,
         foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(widget.details.name),
       ),
